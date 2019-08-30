@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'canteen-management';
-  console.log('first comment')
 }
