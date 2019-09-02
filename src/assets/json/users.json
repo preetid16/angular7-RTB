@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Pooja",
+      "password": "pooja",
+      "email": "pooja",
+      "location": "Rai",
+      "department": "ux"
+    },
+    {
+      "id": 2,
+      "name": "sad",
+      "password": "asd",
+      "email": "asd",
+      "location": "asd",
+      "department": "ux"
+    },
+    {
+      "id": 3,
+      "name": "as",
+      "password": "as",
+      "email": "as",
+      "location": "as",
+      "department": "ux"
+    }
+  ]
+}

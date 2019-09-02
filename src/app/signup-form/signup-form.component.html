@@ -1,4 +1,72 @@
-<button mat-button>Click me!</button>
-<mat-form-field>
-  <input matInput placeholder="Simple Input" [(ngModel)]="title">
-</mat-form-field>
+<form [formGroup]="empForm" autocomplete="off" novalidate (ngSubmit)="createUser(empForm.value)" fxLayout="column wrap" fxLayoutAlign="center center"
+  fxLayoutGap="10px">
+  <mat-card class="cardStyle">
+  <mat-card-header>
+    <mat-toolbar color="primary">
+      <span>Sign Up</span>
+    </mat-toolbar>
+  </mat-card-header>
+
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName="name">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint align="end">Not more then 6 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="number" matInput placeholder="Employee ID" formControlName="empId">
+          <mat-error *ngIf="hasError('empId', 'required')">Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-icon matSuffix>vpn_key</mat-icon>
+          <mat-error *ngIf="hasError('password', 'required')">Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
+          <mat-icon matSuffix>vpn_key</mat-icon>
+          <mat-error *ngIf="hasError('confirmPassword', 'required')">Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Email ID</mat-label>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="hasError('email', 'required')">Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Location" formControlName="location">
+            <mat-option value="option">Impetus IT Park</mat-option>
+            <mat-option value="option">CITP</mat-option>
+          </mat-select>
+          <mat-error *ngIf="hasError('location', 'required')">Required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Department" formControlName="department">
+            <mat-option value="option">UX Practice</mat-option>
+            <mat-option value="option">Neustar</mat-option>
+          </mat-select>
+          <mat-error *ngIf="hasError('department', 'required')">Required</mat-error>
+
+        </mat-form-field>
+        <mat-checkbox>Is Admin?</mat-checkbox>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class='buttons'>
+        <button mat-raised-button color="primary">Signup</button>
+        <button mat-raised-button color="accent">Login</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>

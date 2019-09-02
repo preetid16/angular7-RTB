@@ -5,12 +5,9 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './shared/angular-material.module';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { HomeModule } from './home/home.module';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app.routing.module';
-import { LoginComponent } from './login/login.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoginComponent } from './login/login.component';	
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,13 +20,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HomeModule,
-    MatToolbarModule,
     AppRoutingModule,
-    MatCardModule,
-    MatInputModule,
-    MatProgressSpinnerModule
+    ReactiveFormsModule
   ],
-  exports: [MatToolbarModule],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })
