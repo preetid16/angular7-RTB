@@ -1,32 +1,48 @@
-<div style="width:30%">
-  <img src="assets/img/home-img.JPG" alt="home-page-image" height="100%" width="40%">
-<mat-card class="example-card">
-   <mat-card-header >
-     <mat-card-title>Login</mat-card-title>
-   </mat-card-header>
-   <mat-card-content>
-     <form class="example-form">
-       <table class="example-full-width" cellspacing="0">
-         <tr>
-           <td>
-             <mat-form-field class="example-full-width">
-             <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
-             </mat-form-field>
-           </td>
-         </tr>
-         <tr>
-         <td><mat-form-field class="example-full-width">
-           <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
-         </mat-form-field></td>
-       </tr></table>
-     </form>
-     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-   </mat-card-content>
-   <mat-card-actions>
-     <button mat-raised-button (click)="login()" color="primary">Login</button>
-   </mat-card-actions>
-   <mat-card-footer>
-     <mat-card-subtitle routerLink="/signup"> New user ? Register </mat-card-subtitle>
-   </mat-card-footer>
- </mat-card>
+<div class="login-main-container">
+  <div class="img-container">
+    <img src="assets/img/bg1.jpg" alt="home-page-image" height="100%" width="100%">
+  </div>
+  <div class="login-container">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="example-form">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <mat-radio-group aria-label="Select an option" color="primary">
+                <mat-radio-button value="1" [checked]="true">Admin</mat-radio-button>
+                <mat-radio-button value="2">Employee</mat-radio-button>
+              </mat-radio-group>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="primary">Login</button>
+      </mat-card-actions>
+      <mat-card-footer class="custom-pl">
+        <mat-card-subtitle routerLink="/signup"> New user ? Register </mat-card-subtitle>
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+
+
 </div>
