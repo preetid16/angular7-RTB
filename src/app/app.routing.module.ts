@@ -2,16 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-
+import { SignupFormComponent } from "./signup-form/signup-form.component";
 import { HomeModule } from './home/home.module';
-
+import { LoginComponent } from "./login/login.component";
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: './home/home.module#HomeModule',
+    component: LoginComponent ,
     pathMatch: 'full'
-  }
+  },
+  { path: 'login', component: LoginComponent , pathMatch: 'full'},
+  { path: 'signup', component: SignupFormComponent,  pathMatch: 'full' },
+  // { path: 'home', component: HomeComponent,  pathMatch: 'full', canActivate: [AuthGuard] },
+  // { path: 'admin', component: AdminComponent,  pathMatch: 'full', canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
 ];
 
 

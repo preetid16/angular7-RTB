@@ -23,6 +23,58 @@
       "email": "as",
       "location": "as",
       "department": "ux"
+    },
+    {
+      "name": "pooja",
+      "empId": 12345,
+      "email": "a@gmail.com",
+      "department": "option",
+      "location": "option",
+      "password": "aaaa",
+      "confirmPassword": "aaaa",
+      "id": 4
+    },
+    {
+      "name": "ayushi",
+      "empId": 789,
+      "email": "a@gmail.com",
+      "department": "neustar",
+      "location": "citp",
+      "password": "pooja",
+      "confirmPassword": "pooja",
+      "id": 5
+    },
+    {
+      "name": "ayushi",
+      "empId": 7898,
+      "email": "a@hma.ciom",
+      "department": "ux_practice",
+      "location": "citp",
+      "password": "aa",
+      "confirmPassword": "aa",
+      "id": 6
+    },
+    {
+      "name": "qq",
+      "empId": 11,
+      "email": "q@gmail.com",
+      "department": "neustar",
+      "location": "citp",
+      "password": "qq",
+      "confirmPassword": "qq",
+      "is_admin": true,
+      "id": 7
+    },
+    {
+      "name": "ee",
+      "empId": 1,
+      "email": "ee@e",
+      "department": "neustar",
+      "location": "citp",
+      "password": "ee",
+      "confirmPassword": "ee",
+      "is_admin": "",
+      "id": 8
     }
   ]
 }

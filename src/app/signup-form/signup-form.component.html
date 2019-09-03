@@ -1,4 +1,4 @@
-<form [formGroup]="empForm" autocomplete="off" novalidate (ngSubmit)="createUser(empForm.value)" fxLayout="column wrap" fxLayoutAlign="center center"
+<form [formGroup]="empForm" autocomplete="off" novalidate (ngSubmit)="createUser($event, empForm.value)" fxLayout="column wrap" fxLayoutAlign="center center"
   fxLayoutGap="10px">
   <mat-card class="cardStyle">
   <mat-card-header>
@@ -15,12 +15,13 @@
           <mat-icon matSuffix>person</mat-icon>
           <mat-hint align="end">Not more then 6 characters long.</mat-hint>
           <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
-          <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 60 characters</mat-error>
+          <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 10 characters</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <input type="number" matInput placeholder="Employee ID" formControlName="empId">
           <mat-error *ngIf="hasError('empId', 'required')">Required</mat-error>
+           <mat-error *ngIf="hasError('empId', 'maxlength')">You have more than 6 characters</mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -33,6 +34,7 @@
           <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
           <mat-icon matSuffix>vpn_key</mat-icon>
           <mat-error *ngIf="hasError('confirmPassword', 'required')">Required</mat-error>
+          <!--<mat-error *ngIf="hasError('confirmPassword', 'passwordMismatch')  && signUpForm.get('confirmedPassword').touched">Confirm Password should match</mat-error>-->
         </mat-form-field>
 
         <mat-form-field>
@@ -44,28 +46,28 @@
 
         <mat-form-field>
           <mat-select placeholder="Location" formControlName="location">
-            <mat-option value="option">Impetus IT Park</mat-option>
-            <mat-option value="option">CITP</mat-option>
+            <mat-option value="impetus_it_park">Impetus IT Park</mat-option>
+            <mat-option value="citp">CITP</mat-option>
           </mat-select>
           <mat-error *ngIf="hasError('location', 'required')">Required</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <mat-select placeholder="Department" formControlName="department">
-            <mat-option value="option">UX Practice</mat-option>
-            <mat-option value="option">Neustar</mat-option>
+            <mat-option value="ux_practice">UX Practice</mat-option>
+            <mat-option value="neustar">Neustar</mat-option>
           </mat-select>
           <mat-error *ngIf="hasError('department', 'required')">Required</mat-error>
 
         </mat-form-field>
-        <mat-checkbox>Is Admin?</mat-checkbox>
+        <mat-checkbox formControlName="is_admin">Is Admin?</mat-checkbox>
       </div>
     </mat-card-content>
 
     <mat-card-actions>
       <div class='buttons'>
         <button mat-raised-button color="primary">Signup</button>
-        <button mat-raised-button color="accent">Login</button>
+        <button mat-raised-button routerLink="/login" color="accent">Go Back</button>
       </div>
     </mat-card-actions>
   </mat-card>

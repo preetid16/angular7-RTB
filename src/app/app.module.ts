@@ -8,6 +8,8 @@ import { HomeModule } from './home/home.module';
 import { AppRoutingModule } from './app.routing.module';
 import { LoginComponent } from './login/login.component';	
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserService  } from "./userData.service";
+import { HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -21,10 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularMaterialModule,
     HomeModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
