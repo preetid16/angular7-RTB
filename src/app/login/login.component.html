@@ -3,46 +3,46 @@
     <img src="assets/img/bg1.jpg" alt="home-page-image" height="100%" width="100%">
   </div>
   <div class="login-container">
+    <form class="example-form" [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="onLogin($event, loginForm.value)">
     <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <form class="example-form">
-          <table class="example-full-width" cellspacing="0">
+      
+        <mat-card-header>
+          <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+          <table cellspacing="0">
             <tr>
-              <mat-radio-group aria-label="Select an option" color="primary">
-                <mat-radio-button value="1" [checked]="true">Admin</mat-radio-button>
-                <mat-radio-button value="2">Employee</mat-radio-button>
-              </mat-radio-group>
+                <mat-radio-group aria-label="Select an option" color="primary"  formControlName="formAdminOrEmp">
+                  <mat-radio-button  name="adminBtn" value="1">Admin</mat-radio-button>
+                  <mat-radio-button  name="empBtn" value="2" [checked]="true">Employee</mat-radio-button>
+                </mat-radio-group>
             </tr>
             <tr>
               <td>
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                <mat-form-field class="example-full-width" >
+                  <input matInput placeholder="Username" formControlName="formUsername" name="username" required>
                 </mat-form-field>
               </td>
             </tr>
             <tr>
               <td>
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                <mat-form-field class="example-full-width" >
+                  <input matInput placeholder="Password" formControlName="formPassword" type="password" name="password" required>
                 </mat-form-field>
               </td>
             </tr>
           </table>
-        </form>
-        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="primary">Login</button>
-      </mat-card-actions>
-      <mat-card-footer class="custom-pl">
-        <mat-card-subtitle routerLink="/signup"> New user ? Register </mat-card-subtitle>
-      </mat-card-footer>
+          <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">Login</button>
+        </mat-card-actions>
+        <mat-card-footer class="custom-pl">
+          <mat-card-subtitle routerLink="/signup"> New user ? <span class="uk-icon-hand-pointer-o">Register</span> </mat-card-subtitle>
+        </mat-card-footer>
+     
     </mat-card>
-
+     </form>
   </div>
-
-
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserService } from './../userData.service';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +11,23 @@ import { MatDialog } from '@angular/material';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
-  username: string;
-  password: string;
+  constructor(private router: Router,private UserService: UserService) { }
+
+  username: string = '';
+  password: string = '';
+  loginForm: FormGroup;
   ngOnInit() {
+    this.loginForm = new FormGroup({
+      formAdminOrEmp: new FormControl('2', [Validators.required]),
+      formUsername: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      formPassword: new FormControl('', [Validators.required]),
+    });
   }
-  login(): void {
-    if (this.username == 'admin' && this.password == 'admin') {
-      this.router.navigate(["user"]);
-    } else {
-      alert("Invalid credentials");
-    }
+  
+  onLogin(event,values): void {
+    console.log(values);
+    this.UserService.getUsers().subscribe(response => {
+      console.log(response);
+    })
   }
 }
