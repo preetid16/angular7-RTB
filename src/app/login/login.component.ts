@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from './../userData.service';
 import { AuthService } from '../auth.service';
 import { first } from 'rxjs/operators';
+import swal from 'sweetalert';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,21 +22,29 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   ngOnInit() {
     this.loginForm = new FormGroup({
-      formAdminOrEmp: new FormControl('2', [Validators.required]),
+      formAdminOrEmp: new FormControl('false', [Validators.required]),
       formUsername: new FormControl('', [Validators.required, Validators.maxLength(10)]),
       formPassword: new FormControl('', [Validators.required]),
     });
   }
   
-  onLogin(event,values): void {
+  onLogin(event, values): void {
+    const self = this;
     this.UserService.getUsers().subscribe(response => {
       console.log(response);
+      const user = response.filter(user => {
+        return (user.name === values.formUsername && user.password === values.formPassword && user.is_admin == values.formAdminOrEmp);
+      });
+      console.log(user);
+      if (user !== undefined && user.length !== 0) {
+        self.auth.login(values.formUsername, values.formPassword)
+          .pipe(first())
+          .subscribe(
+          result => self.router.navigate(['/signup'])
+        );
+      } else {
+       swal("Oops!", "Invaild Username and Password", "error");
+      }
     })
-     this.auth.login(values.formUsername, values.formPassword)
-      .pipe(first())
-      .subscribe(
-        result => this.router.navigate(['/signup']),
-        //err => this.error = 'Could not authenticate'
-      );
   }
 }

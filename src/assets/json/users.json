@@ -75,6 +75,17 @@
       "confirmPassword": "ee",
       "is_admin": "",
       "id": 8
+    },
+    {
+      "name": "preeti",
+      "empId": 3,
+      "email": "preeti@gmail.com",
+      "department": "ux_practice",
+      "location": "citp",
+      "password": "preeti",
+      "confirmPassword": "preeti",
+      "is_admin": true,
+      "id": 9
     }
   ]
 }

@@ -14,8 +14,8 @@
           <table cellspacing="0">
             <tr>
                 <mat-radio-group aria-label="Select an option" color="primary"  formControlName="formAdminOrEmp">
-                  <mat-radio-button  name="adminBtn" value="1">Admin</mat-radio-button>
-                  <mat-radio-button  name="empBtn" value="2" [checked]="true">Employee</mat-radio-button>
+                  <mat-radio-button  name="adminBtn" value="true">Admin</mat-radio-button>
+                  <mat-radio-button  name="empBtn" value="false" [checked]="true">Employee</mat-radio-button>
                 </mat-radio-group>
             </tr>
             <tr>
@@ -39,7 +39,7 @@
           <button mat-raised-button color="primary">Login</button>
         </mat-card-actions>
         <mat-card-footer class="custom-pl">
-          <mat-card-subtitle routerLink="/signup"> New user ? <span class="uk-icon-hand-pointer-o">Register</span> </mat-card-subtitle>
+          <mat-card-subtitle routerLink="/signup"> New user ? <span class="cursor-pointer" title="Register">Register</span> </mat-card-subtitle>
         </mat-card-footer>
      
     </mat-card>
