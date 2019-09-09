@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from './../userData.service';
-
+import { AuthService } from '../auth.service';
+import { first } from 'rxjs/operators';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,9 @@ import { UserService } from './../userData.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router,private UserService: UserService) { }
+  constructor(private router: Router,
+              private UserService: UserService,
+              private auth: AuthService) { }
 
   username: string = '';
   password: string = '';
@@ -25,9 +28,14 @@ export class LoginComponent implements OnInit {
   }
   
   onLogin(event,values): void {
-    console.log(values);
     this.UserService.getUsers().subscribe(response => {
       console.log(response);
     })
+     this.auth.login(values.formUsername, values.formPassword)
+      .pipe(first())
+      .subscribe(
+        result => this.router.navigate(['/signup']),
+        //err => this.error = 'Could not authenticate'
+      );
   }
 }
