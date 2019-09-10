@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   loginForm: FormGroup;
+  showLoader:boolean = false;
   ngOnInit() {
     this.loginForm = new FormGroup({
       formAdminOrEmp: new FormControl('false', [Validators.required]),
@@ -29,13 +30,12 @@ export class LoginComponent implements OnInit {
   }
   
   onLogin(event, values): void {
+    this.showLoader = true;
     const self = this;
     this.UserService.getUsers().subscribe(response => {
-      console.log(response);
       const user = response.filter(user => {
-        return (user.name === values.formUsername && user.password === values.formPassword && user.is_admin == values.formAdminOrEmp);
+        return (user.name === values.formUsername && user.password === values.formPassword && user.is_admin == values.formAdminOrEmp) ? true : false;
       });
-      console.log(user);
       if (user !== undefined && user.length !== 0) {
         self.auth.login(values.formUsername, values.formPassword)
           .pipe(first())
@@ -45,6 +45,10 @@ export class LoginComponent implements OnInit {
       } else {
        swal("Oops!", "Invaild Username and Password", "error");
       }
+       this.showLoader = false;
     })
+  }
+  public hasError = (controlName: string, errorName: string) => {
+    return this.loginForm.controls[controlName].hasError(errorName);
   }
 }
