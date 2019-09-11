@@ -21,3 +21,25 @@
 .mat-radio-button ~ .mat-radio-button {
   margin-left: 16px;
 }
+.cursor-pointer {
+    cursor: pointer;
+}
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
+}
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

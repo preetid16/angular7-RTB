@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupFormComponent } from "./signup-form/signup-form.component";
-import { HomeModule } from './home/home.module';
 import { LoginComponent } from "./login/login.component";
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import {AdminPortalComponent} from './admin-portal/admin-portal.component';

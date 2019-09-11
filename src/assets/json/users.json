@@ -78,12 +78,12 @@
     },
     {
       "name": "preeti",
-      "empId": 123,
-      "email": "a@gmail.com",
-      "department": "neustar",
-      "location": "impetus_it_park",
-      "password": "aaa",
-      "confirmPassword": "aaa",
+      "empId": 3,
+      "email": "preeti@gmail.com",
+      "department": "ux_practice",
+      "location": "citp",
+      "password": "preeti",
+      "confirmPassword": "preeti",
       "is_admin": true,
       "id": 9
     }
