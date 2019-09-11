@@ -10,12 +10,14 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService  } from "./userData.service";
 import { HttpClientModule} from "@angular/common/http";
-
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { AdminModule } from "./admin-portal/admin-portal.module";
 @NgModule({
   declarations: [
     AppComponent,
     SignupFormComponent,
-    LoginComponent
+    LoginComponent,
+    AdminPortalComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { HttpClientModule} from "@angular/common/http";
     HomeModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule
   ],
   exports: [],
   providers: [UserService],

@@ -24,7 +24,12 @@ export class SignupFormComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required]),
       is_admin: new FormControl('', [])
-    });
+     }, this.pwdMatchValidator);
+  }
+  
+  pwdMatchValidator(frm: FormGroup) {
+    return frm.get('password').value === frm.get('confirmPassword').value
+       ? null : {'mismatch': true};
   }
 
   public hasError = (controlName: string, errorName: string) => {

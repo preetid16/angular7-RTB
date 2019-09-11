@@ -75,6 +75,17 @@
       "confirmPassword": "ee",
       "is_admin": "",
       "id": 8
+    },
+    {
+      "name": "preeti",
+      "empId": 123,
+      "email": "a@gmail.com",
+      "department": "neustar",
+      "location": "impetus_it_park",
+      "password": "aaa",
+      "confirmPassword": "aaa",
+      "is_admin": true,
+      "id": 9
     }
   ]
 }

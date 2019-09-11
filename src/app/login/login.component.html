@@ -1,3 +1,6 @@
+<mat-toolbar color="primary">
+  <span>Canteen Management system</span>
+</mat-toolbar>
 <div class="login-main-container">
   <div class="img-container">
     <img src="assets/img/bg1.jpg" alt="home-page-image" height="100%" width="100%">
@@ -36,7 +39,7 @@
           <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary">Login</button>
+          <button mat-raised-button color="primary" routerLink="/admin">Login</button>
         </mat-card-actions>
         <mat-card-footer class="custom-pl">
           <mat-card-subtitle routerLink="/signup"> New user ? <span class="uk-icon-hand-pointer-o">Register</span> </mat-card-subtitle>
