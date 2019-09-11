@@ -21,7 +21,7 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     SignupFormComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

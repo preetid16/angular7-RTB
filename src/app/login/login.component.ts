@@ -37,10 +37,10 @@ export class LoginComponent implements OnInit {
         return (user.name === values.formUsername && user.password === values.formPassword && user.is_admin == values.formAdminOrEmp) ? true : false;
       });
       if (user !== undefined && user.length !== 0) {
-        self.auth.login(values.formUsername, values.formPassword)
+        self.auth.login(values.formUsername, values.formPassword, values.formAdminOrEmp)
           .pipe(first())
           .subscribe(
-          result => self.router.navigate(['/signup'])
+          result => self.router.navigate([localStorage.getItem('role')])
         );
       } else {
        swal("Oops!", "Invaild Username and Password", "error");

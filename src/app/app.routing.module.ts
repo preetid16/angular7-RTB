@@ -4,8 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { SignupFormComponent } from "./signup-form/signup-form.component";
 import { LoginComponent } from "./login/login.component";
-import { AuthGuardService as AuthGuard } from './auth-guard.service';
-
+//import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { AuthGuard } from './auth-guard';
 const appRoutes: Routes = [
   {
     path: '',
@@ -14,8 +14,6 @@ const appRoutes: Routes = [
   },
   { path: 'login', component: LoginComponent , pathMatch: 'full'},
   { path: 'signup', component: SignupFormComponent,  pathMatch: 'full' },
-  // { path: 'home', component: HomeComponent,  pathMatch: 'full', canActivate: [AuthGuard] },
-  // { path: 'admin', component: AdminComponent,  pathMatch: 'full', canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
 ];
 
 

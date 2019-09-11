@@ -13,11 +13,12 @@ export class AuthService {
     // true or false
     return !this.jwtHelper.isTokenExpired(token);
   }
-  login(username: string, password: string): Observable<boolean> {
+  login(username: string, password: string, is_admin: boolean): Observable<boolean> {
     return this.http.post<{token: string}>('http://localhost:4000/api/auth', {username: username, password: password})
       .pipe(
         map(result => {
           localStorage.setItem('access_token', result['token']);
+          localStorage.setItem('role', is_admin ? 'admin' : 'employee');
           return true;
         })
       );
