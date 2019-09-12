@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ManageEmployeeComponent } from "./manage-employee/manage-employee.component";
 import { AdminPortalComponent } from "./admin-portal.component";
 import { TransactionManagementComponent } from "./transaction-management/transaction-management.component";
-import { ManageItemComponent } from "./manage-item/manage-item.component";
-
+import { ItemOfDayComponent } from "./item-of-day/item-of-day.component";
+import { ItemMasterListComponent } from "./item-master-list/item-master-list.component";
 const routes: Routes = [
     {
         path: 'admin',
@@ -12,7 +12,8 @@ const routes: Routes = [
         children: [
             { path: '', component: ManageEmployeeComponent },
             { path: 'employee', component: ManageEmployeeComponent },
-            { path: 'item', component: ManageItemComponent },
+            { path: 'item', component: ItemOfDayComponent },
+            { path: 'masterlist', component: ItemMasterListComponent },
             { path: 'transaction', component: TransactionManagementComponent }]
     }
 ];
