@@ -18,6 +18,15 @@
           <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 10 characters</mat-error>
         </mat-form-field>
 
+         <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Name" formControlName="username">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint align="end">Not more then 10 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+          <mat-error *ngIf="hasError('username', 'maxlength')">You have more than 10 characters</mat-error>
+        </mat-form-field>
+
         <mat-form-field>
           <input type="number" matInput placeholder="Employee ID" formControlName="empId">
           <mat-error *ngIf="hasError('empId', 'required')">Required</mat-error>
@@ -47,16 +56,16 @@
 
         <mat-form-field>
           <mat-select placeholder="Location" formControlName="location">
-            <mat-option value="impetus_it_park">Impetus IT Park</mat-option>
-            <mat-option value="citp">CITP</mat-option>
+            <mat-option value="Impetus IT Park">Impetus IT Park</mat-option>
+            <mat-option value="Crystal IT Park">CITP</mat-option>
           </mat-select>
           <mat-error *ngIf="hasError('location', 'required')">Required</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <mat-select placeholder="Department" formControlName="department">
-            <mat-option value="ux_practice">UX Practice</mat-option>
-            <mat-option value="neustar">Neustar</mat-option>
+            <mat-option value="UX Practice">UX Practice</mat-option>
+            <mat-option value="Neustar">Neustar</mat-option>
           </mat-select>
           <mat-error *ngIf="hasError('department', 'required')">Required</mat-error>
 

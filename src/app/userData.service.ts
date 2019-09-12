@@ -6,10 +6,15 @@ import {Observable} from "rxjs/index";
 @Injectable()
 export class UserService {
   baseUrl: string = 'http://localhost:3000/users/';
+  itemBaseUrl: string = 'http://localhost:3001/item/';
   constructor(private http: HttpClient) { }
 
   getUsers() : Observable<any> {
     return this.http.get(this.baseUrl);
+  }
+
+  getItemList() : Observable<any> {
+    return this.http.get(this.itemBaseUrl);
   }
 
   getUserById(id: number): Observable<any> {

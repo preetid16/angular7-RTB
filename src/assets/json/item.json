@@ -1,0 +1,11 @@
+{
+  "item": [
+    {
+      "item_id": 1,
+      "item_name": "Mixture",
+      "quantity": 6,
+      "image_src": "./../img/1.png",
+      "price": 15
+    }
+  ]
+}
