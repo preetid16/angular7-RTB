@@ -34,14 +34,19 @@ export class LoginComponent implements OnInit {
     const self = this;
     this.UserService.getUsers().subscribe(response => {
       const user = response.filter(user => {
-        return (user.name === values.formUsername && user.password === values.formPassword && user.is_admin == values.formAdminOrEmp) ? true : false;
+        return (user.name === values.formUsername && user.password === values.formPassword && user.is_admin == ((values.formAdminOrEmp== null) ?'':values.formAdminOrEmp) ) ? true : false;
       });
       if (user !== undefined && user.length !== 0) {
-        self.auth.login(values.formUsername, values.formPassword, values.formAdminOrEmp)
+        if(!self.auth.loggedIn) {
+          self.auth.login(values.formUsername, values.formPassword, values.formAdminOrEmp)
           .pipe(first())
           .subscribe(
           result => self.router.navigate([localStorage.getItem('role')])
         );
+        } else {
+          self.router.navigate([localStorage.getItem('role')])
+        }
+        
       } else {
        swal("Oops!", "Invaild Username and Password", "error");
       }

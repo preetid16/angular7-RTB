@@ -90,6 +90,18 @@
       "confirmPassword": "a",
       "is_admin": "",
       "id": 11
+    },
+    {
+      "name": "q",
+      "username": "q",
+      "empId": 12,
+      "email": "q@gmail.com",
+      "department": "Neustar",
+      "location": "Crystal IT Park",
+      "password": "q",
+      "confirmPassword": "q",
+      "is_admin": true,
+      "id": 12
     }
   ]
 }
