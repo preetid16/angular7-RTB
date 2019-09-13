@@ -1,0 +1,15 @@
+
+  <mat-toolbar color="primary" class="padding">
+    <mat-toolbar-row>
+      <div>
+        <a mat-button routerLink="/admin/employee">Manage Employees</a>
+        <a mat-button [routerLink]="'/create-account'"> Item Management </a>
+        <a mat-button [routerLink]="'/contacts'"> Transaction Details </a>
+      </div>
+      <div class="">
+        <a mat-button [routerLink]="'/contacts'"> Logout </a>
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+    <router-outlet></router-outlet>
+

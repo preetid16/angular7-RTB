@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   showLoader:boolean = false;
   ngOnInit() {
     this.loginForm = new FormGroup({
-      formAdminOrEmp: new FormControl('false', [Validators.required]),
+      formAdminOrEmp: new FormControl('', [Validators.required]),
       formUsername: new FormControl('', [Validators.required, Validators.maxLength(10)]),
       formPassword: new FormControl('', [Validators.required]),
     });

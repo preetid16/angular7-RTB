@@ -9,6 +9,9 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserService  } from "./userData.service";
 import { HttpClientModule} from "@angular/common/http";
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { AdminModule } from "./admin-portal/admin-portal.module";
+
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard';
@@ -22,6 +25,7 @@ export function tokenGetter() {
     AppComponent,
     SignupFormComponent,
     LoginComponent,
+    AdminPortalComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,7 @@ export function tokenGetter() {
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AdminModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
