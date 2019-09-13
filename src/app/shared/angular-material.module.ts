@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   imports: [
     FormsModule,
@@ -22,7 +24,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
 
@@ -37,7 +41,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatToolbarModule,
     MatRadioModule,
     MatFormFieldModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
 
 })
