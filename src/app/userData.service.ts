@@ -24,4 +24,8 @@ export class UserService {
   createUser(user: Employee): Observable<any> {
     return this.http.post(this.baseUrl, user);
   }
+  
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + id);
+  }
 }

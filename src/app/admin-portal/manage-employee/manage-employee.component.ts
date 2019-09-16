@@ -11,7 +11,7 @@ import { TitleCasePipe } from "./../../shared/pipe/titleCase.pipe";
 })
 
 export class ManageEmployeeComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'email', 'location', 'department', 'actionColumn'];
+  displayedColumns: string[] = ['name', 'empId','email', 'location', 'department', 'actionColumn'];
 
   users: Employee[];
   constructor(private service: UserService) { }
@@ -24,8 +24,13 @@ export class ManageEmployeeComponent implements OnInit {
       });
   }
 
-  applyFilter(filterValue: string) {
-
-  }
+  deleteUser(i, event:Event) {
+      console.log(i)
+    // this.service.deleteUser(user.empId)
+    //   .subscribe( data => {
+    //     this.users = this.users.filter(u => u !== user);
+    //   });
+      
+  };
 
 }
