@@ -102,6 +102,34 @@
       "confirmPassword": "q",
       "is_admin": true,
       "id": 12
+    },
+    {
+      "name": "test",
+      "username": "test",
+      "empId": 12,
+      "email": "test@gmail.com",
+      "department": "Neustar",
+      "location": "Impetus IT Park",
+      "password": "test",
+      "confirmPassword": "test",
+      "is_admin": "",
+      "id": 13
+    },
+    {
+      "name": "df",
+      "username": "df",
+      "empId": 12,
+      "email": "fd@gfg",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "password": "df",
+      "confirmPassword": "df",
+      "is_admin": "",
+      "balance": 0,
+      "history": [
+        {}
+      ],
+      "id": 14
     }
   ]
 }
