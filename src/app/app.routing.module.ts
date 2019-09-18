@@ -6,6 +6,7 @@ import { SignupFormComponent } from "./signup-form/signup-form.component";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuard } from './auth-guard';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { EmployeePortalComponent } from './employee-portal/employee-portal.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   // { path: 'admin', loadChildren:'./admin-portal/admin-portal.module#AdminModule'} 
   // { path: 'home', component: HomeComponent,  pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'admin', component: AdminPortalComponent,  pathMatch: 'full', canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
+  { path: 'employee', component: EmployeePortalComponent,  pathMatch: 'full', canActivate: [AuthGuard], data: { expectedRole: 'employee'}  },
 
 ];
 

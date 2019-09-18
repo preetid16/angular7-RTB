@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable()
 export class AuthService {
-  constructor(public jwtHelper: JwtHelperService,private http: HttpClient) {}
+  constructor(public jwtHelper: JwtHelperService,private http: HttpClient, private router: Router) {}
  
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -31,6 +32,8 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('role');
+    this.router.navigate(['login']);
   }
 
   public get loggedIn(): boolean {
