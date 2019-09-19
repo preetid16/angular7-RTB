@@ -18,7 +18,7 @@ export interface PeriodicElement {
 })
 export class MenuListComponent implements OnInit {
 
-  displayedColumns: string[] = ['select','item_id', 'item_name', 'quantity', 'image', 'price'];
+  displayedColumns: string[] = ['select', 'item_id', 'item_name', 'quantity', 'image', 'price'];
   dataSource = new MatTableDataSource<PeriodicElement>([]);
   selection = new SelectionModel<PeriodicElement>(true, []);
   constructor(private userService: UserService) {
@@ -29,10 +29,10 @@ export class MenuListComponent implements OnInit {
     const initialSelection = [];
     const allowMultiSelect = true
     this.userService.getItemList()
-                    .subscribe((res) => {
-                      //console.log(res);
-                      self.dataSource = new MatTableDataSource<PeriodicElement>(res);
-                    });
+      .subscribe((res) => {
+        //console.log(res);
+        self.dataSource = new MatTableDataSource<PeriodicElement>(res);
+      });
   }
 
   /** Whether the number of selected elements matches the total number of rows. */
@@ -45,8 +45,8 @@ export class MenuListComponent implements OnInit {
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
   /** The label for the checkbox on the passed row */
@@ -57,7 +57,31 @@ export class MenuListComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.item_id + 1}`;
   }
   buyItem() {
-    console.log(this.selection['_selected']);
-    
+    const self = this;
+    let calcualtePrice = 0;
+    this.selection['_selected'].forEach(ele => {
+      calcualtePrice += ele.price;
+    });
+    const userName = localStorage.getItem('userName');
+    this.userService.getUsers().subscribe(response => {
+      const user = response.filter(user => {
+        return user.username === userName;
+      });
+      if ((user[0]['balance'] -= calcualtePrice) > 0) {
+        user[0]['tranaction_history'].push({
+          'userName': userName,
+          'amount': calcualtePrice,
+          'type': 'Debit',
+          'date': new Date()
+        });
+        self.userService.updateUser(user[0])
+          .subscribe(data => {
+            swal("Success", "Items purchasing Done!!", "success");
+          })
+      } else {
+        user[0]['balance'] += calcualtePrice;
+        swal("Oops!", "Not Enough Balance.Please add amount into your account.", "error");
+      }
+    })
   }
 }

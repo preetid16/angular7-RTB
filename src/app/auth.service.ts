@@ -25,6 +25,7 @@ export class AuthService {
         map(result => {
           localStorage.setItem('access_token', result['token']);
           localStorage.setItem('role', is_admin ? 'admin' : 'employee');
+          localStorage.setItem('userName', username);
           return true;
         })
       );
@@ -33,6 +34,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('role');
+    localStorage.removeItem('userName');
     this.router.navigate(['login']);
   }
 
