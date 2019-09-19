@@ -12,6 +12,15 @@ export class ViewBalanceComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+     const userName = localStorage.getItem('userName');
+          if (userName !== undefined) {
+                this.userService.getUsers().subscribe(response => { 
+                  const user = response.filter(user => {
+                    return user.userName === userName;
+                  });
+                  this.currentBalance =  user['balance'];
+            });
+      }
   }
   addMoney() {
      const self = this;
@@ -37,8 +46,5 @@ export class ViewBalanceComponent implements OnInit {
           }
         }
     });
-   
-    
-
   }
 }

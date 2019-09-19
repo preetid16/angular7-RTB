@@ -18,28 +18,34 @@
     </td>
   </ng-container>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  <!-- Item Id Column -->
+  <ng-container matColumnDef="item_id">
+    <th mat-header-cell *matHeaderCellDef> Item Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.item_id}} </td>
   </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <!-- Item Name Column -->
+  <ng-container matColumnDef="item_name">
+    <th mat-header-cell *matHeaderCellDef> Item Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.item_name}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  <!-- Quantity Column -->
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef> Quantity </th>
+    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  <!-- Image Column -->
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef> Image </th>
+    <td mat-cell *matCellDef="let element"> <img src="{{element.image_src}}" height="30" width="30"></td>
+  </ng-container>
+    
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.price}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -47,3 +53,7 @@
       (click)="selection.toggle(row)">
   </tr>
 </table>
+<div class="example-button-row buy-item-btn">
+  <span class="example-spacer"></span>
+  <button mat-raised-button color="primary" (click)="buyItem()"> Buy Item</button>
+</div>

@@ -41,6 +41,8 @@ export class SignupFormComponent implements OnInit {
 
     if (this.empForm.valid) {
       console.log(e);
+      this.empForm.value['balance'] = 0;
+      this.empForm.value['tranaction_history'] = [];
       this.apiService.createUser(this.empForm.value)
         .subscribe(data => {
           swal("Success", "User Registered successfully!!", "success");
