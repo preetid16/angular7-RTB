@@ -5,16 +5,15 @@ import {Observable} from "rxjs/index";
 
 @Injectable()
 export class UserService {
-  baseUrl: string = 'http://localhost:3000/users/';
-  itemBaseUrl: string = 'http://localhost:3001/item/';
+  baseUrl: string = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
   getUsers() : Observable<any> {
-    return this.http.get(this.baseUrl);
+    return this.http.get(this.baseUrl + "users/");
   }
 
   getItemList() : Observable<any> {
-    return this.http.get(this.itemBaseUrl);
+    return this.http.get(this.baseUrl + "item/");
   }
 
   getUserById(id: number): Observable<any> {
@@ -26,6 +25,10 @@ export class UserService {
   }
   
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(this.baseUrl + id);
+    return this.http.delete(this.baseUrl + "users/" + id);
+  }
+
+  deleteItem(id: number): Observable<any> {
+    return this.http.delete(this.baseUrl + "item/" + id);
   }
 }

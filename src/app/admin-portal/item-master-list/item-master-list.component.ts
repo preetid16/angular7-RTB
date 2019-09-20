@@ -20,4 +20,12 @@ item: Item[];
       });
   }
 
+  deleteItem(item: Item, event:Event) { 
+     console.log(item)
+    this.service.deleteItem(item.item_id)
+      .subscribe( data => {
+        this.item = this.item.filter(u => u !== item);
+      });
+  };
+
 }

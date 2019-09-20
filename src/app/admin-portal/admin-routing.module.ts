@@ -5,6 +5,7 @@ import { AdminPortalComponent } from "./admin-portal.component";
 import { TransactionManagementComponent } from "./transaction-management/transaction-management.component";
 import { ItemOfDayComponent } from "./item-of-day/item-of-day.component";
 import { ItemMasterListComponent } from "./item-master-list/item-master-list.component";
+
 const routes: Routes = [
     {
         path: 'admin',

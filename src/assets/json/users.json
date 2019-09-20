@@ -1,22 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Pooja",
-      "password": "pooja",
-      "email": "pooja",
-      "location": "Rai",
-      "department": "ux"
-    },
-    {
-      "id": 2,
-      "name": "sad",
-      "password": "asd",
-      "email": "asd",
-      "location": "asd",
-      "department": "ux"
-    },
-    {
       "id": 3,
       "name": "as",
       "password": "as",
@@ -130,6 +114,43 @@
         {}
       ],
       "id": 14
+    }
+  ],
+  "item": [
+    {
+      "item_id": 1,
+      "item_name": "Mixture",
+      "quantity": 6,
+      "image_src": "assets/img/1.png",
+      "price": 15
+    },
+    {
+      "item_id": 2,
+      "item_name": "Mixture",
+      "quantity": 6,
+      "image_src": "assets/img/1.png",
+      "price": 15
+    },
+    {
+      "item_id": 3,
+      "item_name": "Mixture",
+      "quantity": 6,
+      "image_src": "assets/img/1.png",
+      "price": 15
+    },
+    {
+      "item_id": 4,
+      "item_name": "Mixture",
+      "quantity": 6,
+      "image_src": "assets/img/1.png",
+      "price": 15
+    },
+    {
+      "item_id": 5,
+      "item_name": "Mixture",
+      "quantity": 6,
+      "image_src": "assets/img/1.png",
+      "price": 15
     }
   ]
 }

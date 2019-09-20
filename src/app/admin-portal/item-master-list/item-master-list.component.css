@@ -52,10 +52,12 @@ table {
 .delete {
     padding-left: 8%;
     color: #c32525;
+     cursor: pointer;
 }
 
 .edit {
     color: green;
+     cursor: pointer;
 }
 
 .addUser {

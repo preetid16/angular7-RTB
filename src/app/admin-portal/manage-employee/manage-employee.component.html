@@ -1,59 +1,148 @@
-<div class="outer-wrapper"><mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
+<div class="outer-wrapper" *ngIf="showTable">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
 
-<div>
-<table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <div>
+    <table mat-table [dataSource]="users" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
+      <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name</th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
 
-  <ng-container matColumnDef="empId">
-    <th mat-header-cell *matHeaderCellDef> Employee ID</th>
-    <td mat-cell *matCellDef="let element"> {{element.empId}} </td>
-  </ng-container>
+      <ng-container matColumnDef="empId">
+        <th mat-header-cell *matHeaderCellDef> Employee ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.empId}} </td>
+      </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> Email </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="location">
-    <th mat-header-cell *matHeaderCellDef> Location </th>
-    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
-  </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+      </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="department">
-    <th mat-header-cell *matHeaderCellDef> Department </th>
-    <td mat-cell *matCellDef="let element"> {{element.department}} </td>
-  </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef> Department </th>
+        <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+      </ng-container>
 
-  <ng-container matColumnDef="actionColumn">
-     <th mat-header-cell *matHeaderCellDef> Ation Items </th>
-    <td mat-cell *matCellDef="let row; let j=index">
-       <mat-icon class="edit">edit</mat-icon>
-       <mat-icon class="delete" (click)="deleteUser(j, $event)">delete</mat-icon>
-    </td>
-  </ng-container>
+      <ng-container matColumnDef="actionColumn">
+        <th mat-header-cell *matHeaderCellDef> Ation Items </th>
+        <td mat-cell *matCellDef="let row; let j=index">
+          <mat-icon class="edit">edit</mat-icon>
+          <mat-icon class="delete" (click)="deleteEmployee(row, $event)">delete</mat-icon>
+        </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 
-<mat-paginator class="pagination" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <mat-paginator class="pagination" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <div class="addUser">
+    <button mat-fab color="primary" (click)="openDialog()"><mat-icon>add</mat-icon></button>
+  </div>
+
 </div>
 
-<div class="addUser">
-  <button mat-fab color="primary"><mat-icon>add</mat-icon></button> 
-</div>
+<div *ngIf="showAddForm">
+  <form [formGroup]="addForm" autocomplete="off" novalidate (ngSubmit)="createUser($event, addForm.value)" fxLayout="column wrap" fxLayoutAlign="center center"
+  fxLayoutGap="10px">
+  <mat-card class="cardStyle">
+  <mat-card-header>
+    <!--<mat-toolbar color="primary">
+      <span>Sign Up</span>
+    </mat-toolbar>-->
+  </mat-card-header>
+
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" formControlName="name">
+          <mat-icon matSuffix>person</mat-icon>
+          <!--<mat-hint align="end">Not more then 10 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 10 characters</mat-error>-->
+        </mat-form-field>
+
+         <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Name" formControlName="username">
+          <mat-icon matSuffix>person</mat-icon>
+          <!--<mat-hint align="end">Not more then 10 characters long.</mat-hint>
+          <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+          <mat-error *ngIf="hasError('username', 'maxlength')">You have more than 10 characters</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="number" matInput placeholder="Employee ID" formControlName="empId">
+          <!--<mat-error *ngIf="hasError('empId', 'required')">Required</mat-error>
+           <mat-error *ngIf="hasError('empId', 'maxlength')">You have more than 6 characters</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-icon matSuffix>vpn_key</mat-icon>
+          <!--<mat-error *ngIf="hasError('password', 'required')">Required</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
+          <mat-icon matSuffix>vpn_key</mat-icon>
+          <!--<mat-error *ngIf="hasError('confirmPassword', 'required')">Required</mat-error>
+          <mat-error>Password doesn't match</mat-error>-->
+          <!--<mat-error *ngIf="hasError('confirmPassword', 'passwordMismatch')  && signUpForm.get('confirmedPassword').touched">Confirm Password should match</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Email ID</mat-label>
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-icon matSuffix>email</mat-icon>
+          <!--<mat-error *ngIf="hasError('email', 'required')">Required</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Location" formControlName="location">
+            <mat-option value="Impetus IT Park">Impetus IT Park</mat-option>
+            <mat-option value="Crystal IT Park">CITP</mat-option>
+          </mat-select>
+          <!--<mat-error *ngIf="hasError('location', 'required')">Required</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Department" formControlName="department">
+            <mat-option value="UX Practice">UX Practice</mat-option>
+            <mat-option value="Neustar">Neustar</mat-option>
+          </mat-select>
+          <!--<mat-error *ngIf="hasError('department', 'required')">Required</mat-error>-->
+
+        </mat-form-field>
+        <mat-checkbox formControlName="is_admin">Is Admin?</mat-checkbox>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div class='buttons'>
+        <button mat-raised-button color="primary">Signup</button>
+        <button mat-raised-button routerLink="/login" color="accent">Go Back</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</form>
 
 </div>
