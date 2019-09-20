@@ -1,10 +1,11 @@
-const _ = require('lodash');
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
+var cors = require('cors')
 
+app.use(cors()) // Use this after the variable declaration
 app.use(bodyParser.json());
 app.use("/",expressJwt({secret: 'todo-app-super-shared-secret'}).unless({path: ['/api/auth']}));
 

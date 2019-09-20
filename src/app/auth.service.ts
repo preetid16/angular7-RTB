@@ -18,9 +18,10 @@ export class AuthService {
     const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             })
         };
-    return this.http.post<{token: string}>('http://localhost:4000/api/auth', {username: username, password: password},httpOptions)
+    return this.http.post<{token: string}>('http://localhost:4000/api/auth', {username: username, password: password},httpOptions,)
       .pipe(
         map(result => {
           localStorage.setItem('access_token', result['token']);
