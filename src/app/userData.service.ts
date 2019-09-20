@@ -31,4 +31,8 @@ export class UserService {
   deleteItem(id: number): Observable<any> {
     return this.http.delete(this.baseUrl + "item/" + id);
   }
+
+  updateUser(user: Employee): Observable<any> {
+    return this.http.put(this.baseUrl + "users/" +user['id'], user);
+  }
 }

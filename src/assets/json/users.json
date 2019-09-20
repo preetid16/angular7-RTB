@@ -88,18 +88,6 @@
       "id": 12
     },
     {
-      "name": "test",
-      "username": "test",
-      "empId": 12,
-      "email": "test@gmail.com",
-      "department": "Neustar",
-      "location": "Impetus IT Park",
-      "password": "test",
-      "confirmPassword": "test",
-      "is_admin": "",
-      "id": 13
-    },
-    {
       "name": "df",
       "username": "df",
       "empId": 12,
@@ -110,10 +98,53 @@
       "confirmPassword": "df",
       "is_admin": "",
       "balance": 0,
-      "history": [
-        {}
-      ],
+      "tranaction_history": [],
       "id": 14
+    },
+    {
+      "name": "test",
+      "username": "test",
+      "empId": 123,
+      "email": "test@gmail.com",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "password": "test",
+      "confirmPassword": "test",
+      "is_admin": "",
+      "balance": 175,
+      "tranaction_history": [
+        {
+          "userName": "test",
+          "amount": 100,
+          "type": "credit",
+          "date": "2019-09-19T12:24:43.633Z"
+        },
+        {
+          "userName": "test",
+          "amount": 20,
+          "type": "credit",
+          "date": "2019-09-19T12:26:41.022Z"
+        },
+        {
+          "userName": "test",
+          "amount": 15,
+          "type": "Debit",
+          "date": "2019-09-19T12:43:00.964Z"
+        },
+        {
+          "userName": "test",
+          "amount": 100,
+          "type": "credit",
+          "date": "2019-09-20T11:37:52.430Z"
+        },
+        {
+          "userName": "test",
+          "amount": 15,
+          "type": "Debit",
+          "date": "2019-09-20T11:38:31.339Z"
+        }
+      ],
+      "id": 15
     }
   ],
   "item": [

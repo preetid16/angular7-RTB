@@ -18,13 +18,15 @@ export class AuthService {
     const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             })
         };
-    return this.http.post<{token: string}>('http://localhost:4000/api/auth', {username: username, password: password},httpOptions)
+    return this.http.post<{token: string}>('http://localhost:4000/api/auth', {username: username, password: password},httpOptions,)
       .pipe(
         map(result => {
           localStorage.setItem('access_token', result['token']);
           localStorage.setItem('role', is_admin ? 'admin' : 'employee');
+          localStorage.setItem('userName', username);
           return true;
         })
       );
@@ -33,6 +35,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('role');
+    localStorage.removeItem('userName');
     this.router.navigate(['login']);
   }
 

@@ -16,9 +16,9 @@ export class ViewBalanceComponent implements OnInit {
           if (userName !== undefined) {
                 this.userService.getUsers().subscribe(response => { 
                   const user = response.filter(user => {
-                    return user.userName === userName;
+                    return user.username === userName;
                   });
-                  this.currentBalance =  user['balance'];
+                  this.currentBalance =  user[0]['balance'];
             });
       }
   }
@@ -33,15 +33,27 @@ export class ViewBalanceComponent implements OnInit {
         },
       },
     }).then((value) => {
+      value = Number(value);
       if(value !== undefined && typeof value === 'number') {
           const userName = localStorage.getItem('userName');
           if (userName !== undefined) {
                 self.userService.getUsers().subscribe(response => { 
                   const user = response.filter(user => {
-                    return user.userName === userName;
+                    return user.username === userName;
                   });
-                  user['money'] += value;
-                  self.currentBalance = user['money'];
+                  user[0]['balance'] += value;
+                  user[0]['tranaction_history'].push({
+                    'userName' :userName,
+                    'amount': value,
+                    'type':'credit',
+                    'date':new Date()
+                  });
+                  console.log(user);
+                  self.currentBalance = user[0]['balance'];
+                  self.userService.updateUser(user[0])
+                        .subscribe(data => {
+                          swal("Success", "Balance Added successfully!!", "success");
+                  })
               });
           }
         }
