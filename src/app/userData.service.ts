@@ -17,11 +17,11 @@ export class UserService {
   }
 
   getUserById(id: number): Observable<any> {
-    return this.http.get(this.baseUrl + id);
+    return this.http.get(this.baseUrl + "users/"+ id);
   }
 
   createUser(user: Employee): Observable<any> {
-    return this.http.post(this.baseUrl, user);
+    return this.http.post(this.baseUrl + "users/", user);
   }
   
   deleteUser(id: number): Observable<any> {

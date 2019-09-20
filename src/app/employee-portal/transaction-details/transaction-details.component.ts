@@ -12,13 +12,11 @@ export class TransactionDetailsComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    //let userId = localStorage.getItem('id');
-    let userId = 15;
+    const userId = Number(localStorage.getItem('userId'));
     const self = this;
     if (userId !== undefined) {
       this.userService.getUserById(userId).subscribe(response => {
         self.tranactionsArr = response['tranaction_history'];
-        console.log(self.tranactionsArr);
       });
     }
   }

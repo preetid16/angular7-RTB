@@ -40,8 +40,10 @@ export class LoginComponent implements OnInit {
         if(!self.auth.loggedIn) {
           self.auth.login(values.formUsername, values.formPassword, values.formAdminOrEmp)
           .pipe(first())
-          .subscribe(
-          result => self.router.navigate([localStorage.getItem('role')])
+          .subscribe( (result) => {
+            localStorage.setItem('userId', user[0]['id']);
+            self.router.navigate([localStorage.getItem('role')])
+          } 
         );
         } else {
           self.router.navigate([localStorage.getItem('role')])

@@ -12,13 +12,10 @@ export class ViewBalanceComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-     const userName = localStorage.getItem('userName');
-          if (userName !== undefined) {
-                this.userService.getUsers().subscribe(response => { 
-                  const user = response.filter(user => {
-                    return user.username === userName;
-                  });
-                  this.currentBalance =  user[0]['balance'];
+     const userId = Number(localStorage.getItem('userId'));
+          if (userId !== undefined) {
+                this.userService.getUserById(userId).subscribe(response => {
+                  this.currentBalance =  response['balance'];
             });
       }
   }
@@ -36,21 +33,18 @@ export class ViewBalanceComponent implements OnInit {
       value = Number(value);
       if(value !== undefined && typeof value === 'number') {
           const userName = localStorage.getItem('userName');
-          if (userName !== undefined) {
-                self.userService.getUsers().subscribe(response => { 
-                  const user = response.filter(user => {
-                    return user.username === userName;
-                  });
-                  user[0]['balance'] += value;
-                  user[0]['tranaction_history'].push({
+          const id = Number(localStorage.getItem('userId'));
+          if (id !== undefined) {
+                self.userService.getUserById(id).subscribe(user => {
+                  user['balance'] += value;
+                  user['tranaction_history'].push({
                     'userName' :userName,
                     'amount': value,
                     'type':'credit',
                     'date':new Date()
                   });
-                  console.log(user);
-                  self.currentBalance = user[0]['balance'];
-                  self.userService.updateUser(user[0])
+                  self.currentBalance = user['balance'];
+                  self.userService.updateUser(user)
                         .subscribe(data => {
                           swal("Success", "Balance Added successfully!!", "success");
                   })

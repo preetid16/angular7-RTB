@@ -111,7 +111,7 @@
       "password": "test",
       "confirmPassword": "test",
       "is_admin": "",
-      "balance": 175,
+      "balance": 220,
       "tranaction_history": [
         {
           "userName": "test",
@@ -142,6 +142,30 @@
           "amount": 15,
           "type": "Debit",
           "date": "2019-09-20T11:38:31.339Z"
+        },
+        {
+          "userName": null,
+          "amount": 25,
+          "type": "credit",
+          "date": "2019-09-20T13:20:34.885Z"
+        },
+        {
+          "userName": "test",
+          "amount": 15,
+          "type": "Debit",
+          "date": "2019-09-20T13:20:53.737Z"
+        },
+        {
+          "userName": "test",
+          "amount": 15,
+          "type": "credit",
+          "date": "2019-09-20T13:29:11.132Z"
+        },
+        {
+          "userName": "test",
+          "amount": 20,
+          "type": "credit",
+          "date": "2019-09-20T13:29:41.820Z"
         }
       ],
       "id": 15

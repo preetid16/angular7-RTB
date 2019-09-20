@@ -30,7 +30,6 @@ export class MenuListComponent implements OnInit {
     const allowMultiSelect = true
     this.userService.getItemList()
       .subscribe((res) => {
-        //console.log(res);
         self.dataSource = new MatTableDataSource<PeriodicElement>(res);
       });
   }
@@ -63,23 +62,21 @@ export class MenuListComponent implements OnInit {
       calcualtePrice += ele.price;
     });
     const userName = localStorage.getItem('userName');
-    this.userService.getUsers().subscribe(response => {
-      const user = response.filter(user => {
-        return user.username === userName;
-      });
-      if ((user[0]['balance'] -= calcualtePrice) > 0) {
-        user[0]['tranaction_history'].push({
+    const userId = Number(localStorage.getItem('userId'));
+    this.userService.getUserById(userId).subscribe(user => {
+      if ((user['balance'] -= calcualtePrice) > 0) {
+        user['tranaction_history'].push({
           'userName': userName,
           'amount': calcualtePrice,
           'type': 'Debit',
           'date': new Date()
         });
-        self.userService.updateUser(user[0])
+        self.userService.updateUser(user)
           .subscribe(data => {
             swal("Success", "Items purchasing Done!!", "success");
           })
       } else {
-        user[0]['balance'] += calcualtePrice;
+        user['balance'] += calcualtePrice;
         swal("Oops!", "Not Enough Balance.Please add amount into your account.", "error");
       }
     })
