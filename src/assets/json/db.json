@@ -153,7 +153,8 @@
       "item_name": "Mixture",
       "quantity": 6,
       "image_src": "assets/img/1.png",
-      "price": 15
+      "price": 15,
+      "is_item_of_day": true
     },
     {
       "item_id": 2,
@@ -167,7 +168,8 @@
       "item_name": "Mixture",
       "quantity": 6,
       "image_src": "assets/img/1.png",
-      "price": 15
+      "price": 15,
+      "is_item_of_day": true
     },
     {
       "item_id": 4,
@@ -181,7 +183,8 @@
       "item_name": "Mixture",
       "quantity": 6,
       "image_src": "assets/img/1.png",
-      "price": 15
+      "price": 15,
+      "is_item_of_day": true
     }
   ]
 }

@@ -50,8 +50,8 @@ export class ManageEmployeeComponent implements OnInit {
   };
 
   openDialog (){
-    this.showAddForm = true;
-    this.showTable = false;
+    // this.showAddForm = true;
+    // this.showTable = false;
   }
 
 }
