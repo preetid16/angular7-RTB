@@ -12,16 +12,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 
 export class ManageEmployeeComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'empId', 'email', 'location', 'department', 'actionColumn'];
+  displayedColumns: string[] = ['name', 'empId', 'email', 'location', 'department', 'actionColumn', 'balance' , 'addMoney'];
   public addForm: FormGroup;
   users: Employee[];
   showAddForm : boolean = false;
   showTable : boolean = true;
+  currentBalance: number;
+  
   constructor(private service: UserService) { }
 
   ngOnInit() {
     this.service.getUsers()
       .subscribe(data => {
+        console.log(data);
         this.users = data;
       });
 
@@ -52,6 +55,45 @@ export class ManageEmployeeComponent implements OnInit {
   openDialog (){
     // this.showAddForm = true;
     // this.showTable = false;
+  }
+  addMoney(row) {
+    let userInfo = row;
+    const self = this;
+    swal({
+      content: {
+        element: "input",
+        attributes: {
+          placeholder: "Enter Amount you want to add",
+          type: "text",
+        },
+      },
+    }).then((value) => {
+      if(value !== null) {
+         value = Number(value);
+      }
+      if(value !== undefined && typeof value === 'number' && value !== null) {
+          const userName = userInfo['userName'];
+          const id = Number(userInfo['id']);
+          if (id !== undefined) {
+                self.service.getUserById(id).subscribe(user => {
+                  user['balance'] += value;
+                  user['tranaction_history'].push({
+                    'userName' :userName,
+                    'amount': value,
+                    'type':'credit',
+                    'date':new Date()
+                  });
+                  self.currentBalance = user['balance'];
+                  self.service.updateUser(user)
+                        .subscribe(data => {
+                          swal("Success", "Balance Added successfully!!", "success");
+                  })
+              });
+          }
+        } else {
+          swal("Error", "Something went wrong!!", "error");
+        }
+    });
   }
 
 }

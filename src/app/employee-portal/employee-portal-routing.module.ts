@@ -9,9 +9,8 @@ const routes: Routes = [
         path: 'employee',
         component: EmployeePortalComponent,
         children: [
-            { path: '', component: ViewBalanceComponent },
+            //{ path: '', component: ViewBalanceComponent },
             { path: 'employee', component: ViewBalanceComponent },
-            //{ path: 'item', component: ItemOfDayComponent },
             { path: 'menulist', component: MenuListComponent },
             { path: 'transaction', component: TransactionDetailsComponent }]
     }

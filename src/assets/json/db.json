@@ -98,7 +98,13 @@
       "confirmPassword": "df",
       "is_admin": "",
       "balance": 0,
-      "tranaction_history": [],
+      "tranaction_history": [
+        {
+          "amount": 0,
+          "type": "credit",
+          "date": "2019-09-23T11:53:42.934Z"
+        }
+      ],
       "id": 14
     },
     {
@@ -111,7 +117,7 @@
       "password": "test",
       "confirmPassword": "test",
       "is_admin": "",
-      "balance": 220,
+      "balance": 240,
       "tranaction_history": [
         {
           "userName": "test",
@@ -166,6 +172,16 @@
           "amount": 20,
           "type": "credit",
           "date": "2019-09-20T13:29:41.820Z"
+        },
+        {
+          "amount": 20,
+          "type": "credit",
+          "date": "2019-09-23T11:49:25.392Z"
+        },
+        {
+          "amount": 0,
+          "type": "credit",
+          "date": "2019-09-23T11:51:28.500Z"
         }
       ],
       "id": 15
