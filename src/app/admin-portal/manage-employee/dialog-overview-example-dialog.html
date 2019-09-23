@@ -1,24 +1,24 @@
-<form [formGroup]="empForm" autocomplete="off" novalidate (ngSubmit)="createUser($event, empForm.value)" fxLayout="column wrap" fxLayoutAlign="center center"
-  fxLayoutGap="10px">
-  <mat-card class="cardStyle">
-  <mat-card-header>
-    <mat-toolbar color="primary">
-      <span>Sign Up</span>
-    </mat-toolbar>
-  </mat-card-header>
+<!--<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>-->
 
+<form [formGroup]="addForm" autocomplete="off" novalidate fxLayout="column wrap" fxLayoutAlign="center center" (ngSubmit)="createUser($event, empForm.value)" fxLayoutGap="10px">
+  <mat-card class="cardStyle">
     <mat-card-content>
       <div class="example-container">
         <mat-form-field>
           <mat-label>Name</mat-label>
           <input matInput placeholder="Name" formControlName="name">
-          <mat-icon matSuffix>person</mat-icon>
           <mat-hint align="end">Not more then 10 characters long.</mat-hint>
           <mat-error *ngIf="hasError('name', 'required')">Name is required</mat-error>
           <mat-error *ngIf="hasError('name', 'maxlength')">You have more than 10 characters</mat-error>
         </mat-form-field>
 
-         <mat-form-field>
+        <mat-form-field>
           <mat-label>Username</mat-label>
           <input matInput placeholder="Username" formControlName="username">
           <mat-icon matSuffix>person</mat-icon>
@@ -27,31 +27,22 @@
           <mat-error *ngIf="hasError('username', 'maxlength')">You have more than 10 characters</mat-error>
         </mat-form-field>
 
+        <mat-form-field style="display:none">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password">
+        </mat-form-field>
+
         <mat-form-field>
           <input type="number" matInput placeholder="Employee ID" formControlName="empId">
           <mat-error *ngIf="hasError('empId', 'required')">Required</mat-error>
-           <mat-error *ngIf="hasError('empId', 'maxlength')">You have more than 6 characters</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="password" matInput placeholder="Password" formControlName="password">
-          <mat-icon matSuffix>vpn_key</mat-icon>
-          <mat-error *ngIf="hasError('password', 'required')">Required</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPassword">
-          <mat-icon matSuffix>vpn_key</mat-icon>
-          <mat-error *ngIf="hasError('confirmPassword', 'required')">Required</mat-error>
-          <mat-error>Password doesn't match</mat-error>
-          <!--<mat-error *ngIf="hasError('confirmPassword', 'passwordMismatch')  && signUpForm.get('confirmedPassword').touched">Confirm Password should match</mat-error>-->
+          <mat-error *ngIf="hasError('empId', 'maxlength')">You have more than 6 characters</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Email ID</mat-label>
           <input matInput placeholder="Email" formControlName="email">
           <mat-icon matSuffix>email</mat-icon>
-          <mat-error *ngIf="hasError('email', 'required')">Required</mat-error>
+          <mat-error *ngIf="hasError('email', 'required')">Please enter valid email id.</mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -68,17 +59,13 @@
             <mat-option value="Neustar">Neustar</mat-option>
           </mat-select>
           <mat-error *ngIf="hasError('department', 'required')">Required</mat-error>
-
         </mat-form-field>
-        <mat-checkbox formControlName="is_admin">Is Admin?</mat-checkbox>
+      </div>
+
+      <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button [disabled]="addForm.invalid" (click)="addNewUser(addForm.value)" cdkFocusInitial>Add</button>
       </div>
     </mat-card-content>
-
-    <mat-card-actions>
-      <div class='buttons'>
-        <button mat-raised-button color="primary">Signup</button>
-        <button mat-raised-button routerLink="/login" color="accent">Go Back</button>
-      </div>
-    </mat-card-actions>
   </mat-card>
 </form>
