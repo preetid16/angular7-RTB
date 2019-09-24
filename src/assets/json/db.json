@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": 3,
-      "name": "as",
-      "password": "as",
-      "email": "as",
-      "location": "as",
-      "department": "ux"
-    },
-    {
       "name": "pooja",
       "empId": 12345,
       "email": "a@gmail.com",
@@ -64,18 +56,6 @@
       "id": 10
     },
     {
-      "name": "aa",
-      "username": "aa",
-      "empId": 23,
-      "email": "ra@hma.com",
-      "department": "UX Practice",
-      "location": "Crystal IT Park",
-      "password": "a",
-      "confirmPassword": "a",
-      "is_admin": "",
-      "id": 11
-    },
-    {
       "name": "Pooja",
       "username": "pooja",
       "empId": 3691,
@@ -117,7 +97,7 @@
       "password": "test",
       "confirmPassword": "test",
       "is_admin": "",
-      "balance": 250,
+      "balance": 305,
       "tranaction_history": [
         {
           "userName": "test",
@@ -174,32 +154,19 @@
           "date": "2019-09-20T13:29:41.820Z"
         },
         {
-          "amount": 20,
+          "userName": "test",
+          "amount": 100,
           "type": "credit",
-          "date": "2019-09-23T11:49:25.392Z"
+          "date": "2019-09-23T12:28:10.813Z"
         },
         {
-          "amount": 0,
-          "type": "credit",
-          "date": "2019-09-23T11:51:28.500Z"
-        },
-        {
-          "amount": 10,
-          "type": "credit",
-          "date": "2019-09-23T12:55:47.374Z"
+          "userName": "test",
+          "amount": 15,
+          "type": "Debit",
+          "date": "2019-09-23T12:28:39.510Z"
         }
       ],
       "id": 15
-    },
-    {
-      "name": "new",
-      "username": "new",
-      "empid": 123,
-      "email": "new@gmail.com",
-      "department": "UX Practice",
-      "location": "Crystal IT Park",
-      "pass": "",
-      "id": 16
     },
     {
       "name": "abhishek",
@@ -220,46 +187,64 @@
       "location": "Crystal IT Park",
       "password": "abc",
       "id": 18
+    },
+    {
+      "name": "aa",
+      "username": "aa",
+      "empId": 21,
+      "email": "21@h.com",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "password": "aa",
+      "id": 19
     }
   ],
   "item": [
     {
-      "item_id": 1,
+      "id": 1,
       "item_name": "Mixture",
-      "quantity": 6,
+      "quantity": 4,
       "image_src": "assets/img/1.png",
       "price": 15,
       "is_item_of_day": true
     },
     {
-      "item_id": 2,
-      "item_name": "Mixture",
+      "id": 2,
+      "item_name": "Ice Cream",
       "quantity": 6,
       "image_src": "assets/img/1.png",
       "price": 15
     },
     {
-      "item_id": 3,
-      "item_name": "Mixture",
+      "id": 3,
+      "item_name": "Sev",
       "quantity": 6,
       "image_src": "assets/img/1.png",
       "price": 15,
       "is_item_of_day": true
     },
     {
-      "item_id": 4,
-      "item_name": "Mixture",
-      "quantity": 6,
-      "image_src": "assets/img/1.png",
-      "price": 15
-    },
-    {
-      "item_id": 5,
-      "item_name": "Mixture",
+      "id": 5,
+      "item_name": "Lays",
       "quantity": 6,
       "image_src": "assets/img/1.png",
       "price": 15,
       "is_item_of_day": true
+    },
+    {
+      "item_name": "Aalu Bhujiya",
+      "quantity": 10,
+      "price": 10,
+      "image_src": "assets/img/1.png",
+      "id": 34
+    },
+    {
+      "item_name": "Chatpati Bhujiya",
+      "quantity": 15,
+      "price": 10,
+      "is_item_of_day": true,
+      "image_src": "assets/img/1.png",
+      "id": 35
     }
   ]
 }

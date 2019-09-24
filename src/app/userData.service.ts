@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Employee} from "./shared/interface/employee.model";
+import { Item } from "./shared/interface/item.model";
 import {Observable} from "rxjs/index";
 
 @Injectable()
@@ -22,6 +23,10 @@ export class UserService {
 
   createUser(user: Employee): Observable<any> {
     return this.http.post(this.baseUrl + "users/", user);
+  }
+
+  addItem(item: Item): Observable<any> {
+    return this.http.post(this.baseUrl + "item/", item);
   }
   
   deleteUser(id: number): Observable<any> {

@@ -148,7 +148,7 @@ export class DialogOverviewExampleDialog implements OnInit {
     }
     this.service.createUser(this.addForm.value)
       .subscribe(data => {
-        swal('success', "Employee Details added Successfully.");
+        swal('success', "Employee Details added Successfully.", "success");
       });
   }
 

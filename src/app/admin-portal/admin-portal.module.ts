@@ -5,7 +5,7 @@ import { ManageEmployeeComponent, DialogOverviewExampleDialog , EditEmployeeDial
 import { TransactionManagementComponent } from './transaction-management/transaction-management.component';
 import { AngularMaterialModule } from './../shared/angular-material.module';
 import { ItemOfDayComponent } from './item-of-day/item-of-day.component';
-import { ItemMasterListComponent } from './item-master-list/item-master-list.component';
+import { ItemMasterListComponent, MaterListAddItemDialog } from './item-master-list/item-master-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
 imports: [
@@ -14,7 +14,7 @@ imports: [
     ReactiveFormsModule,
     CommonModule
 ],
-declarations: [ManageEmployeeComponent, TransactionManagementComponent, ItemOfDayComponent, ItemMasterListComponent, DialogOverviewExampleDialog , EditEmployeeDialog],
-entryComponents: [DialogOverviewExampleDialog , EditEmployeeDialog],
+declarations: [ManageEmployeeComponent, TransactionManagementComponent, ItemOfDayComponent, ItemMasterListComponent, DialogOverviewExampleDialog, MaterListAddItemDialog , EditEmployeeDialog],
+entryComponents: [DialogOverviewExampleDialog, MaterListAddItemDialog , EditEmployeeDialog ],
 })
 export  class  AdminModule { }
