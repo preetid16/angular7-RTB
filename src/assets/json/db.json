@@ -117,7 +117,7 @@
       "password": "test",
       "confirmPassword": "test",
       "is_admin": "",
-      "balance": 240,
+      "balance": 250,
       "tranaction_history": [
         {
           "userName": "test",
@@ -182,9 +182,44 @@
           "amount": 0,
           "type": "credit",
           "date": "2019-09-23T11:51:28.500Z"
+        },
+        {
+          "amount": 10,
+          "type": "credit",
+          "date": "2019-09-23T12:55:47.374Z"
         }
       ],
       "id": 15
+    },
+    {
+      "name": "new",
+      "username": "new",
+      "empid": 123,
+      "email": "new@gmail.com",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "pass": "",
+      "id": 16
+    },
+    {
+      "name": "abhishek",
+      "username": "abhishek",
+      "empId": 456,
+      "email": "abhi@gmail.com",
+      "department": "Neustar",
+      "location": "Impetus IT Park",
+      "password": "abhishek",
+      "id": 17
+    },
+    {
+      "name": "abc",
+      "username": "abc",
+      "empId": 123456,
+      "email": "abc@gmail.com",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "password": "abc",
+      "id": 18
     }
   ],
   "item": [
