@@ -4,7 +4,7 @@ import { UserService } from '../../userData.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
 export interface PeriodicElement {
-  item_id: number;
+  id: number;
   item_name: string;
   quantity: number;
   image_src: string;
@@ -18,7 +18,7 @@ export interface PeriodicElement {
 })
 export class MenuListComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'item_id', 'item_name', 'quantity', 'image', 'price'];
+  displayedColumns: string[] = ['select', 'id', 'item_name', 'quantity', 'image', 'price'];
   dataSource = new MatTableDataSource<PeriodicElement>([]);
   selection = new SelectionModel<PeriodicElement>(true, []);
   constructor(private userService: UserService) {
@@ -53,7 +53,7 @@ export class MenuListComponent implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.item_id + 1}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
   buyItem() {
     const self = this;

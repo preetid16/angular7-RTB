@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ManageEmployeeComponent } from "./manage-employee/manage-employee.component";
 import { AdminPortalComponent } from "./admin-portal.component";
-import { TransactionManagementComponent } from "./transaction-management/transaction-management.component";
 import { ItemOfDayComponent } from "./item-of-day/item-of-day.component";
 import { ItemMasterListComponent } from "./item-master-list/item-master-list.component";
+import { TransactionDetailsComponent } from './../employee-portal/transaction-details/transaction-details.component';
 
 const routes: Routes = [
     {
@@ -15,7 +15,7 @@ const routes: Routes = [
             { path: 'employee', component: ManageEmployeeComponent },
             { path: 'item', component: ItemOfDayComponent },
             { path: 'masterlist', component: ItemMasterListComponent },
-            { path: 'transaction', component: TransactionManagementComponent }]
+            { path: 'transaction', component: TransactionDetailsComponent }]
     }
 ];
 @NgModule({
