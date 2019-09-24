@@ -40,6 +40,14 @@ export class ManageEmployeeComponent implements OnInit {
   }
   editEmployee(employee: Employee, event: Event) {
     this.show = true;
+    const dialogRef = this.dialog.open(EditEmployeeDialog, {
+      width: '450px',
+      data: { name: employee, animal: this.animal }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
     // let deleteBy = (employee.empId) ? employee.empId : employee.id;
     // this.service.deleteUser(deleteBy)
     //   .subscribe(data => {
@@ -66,7 +74,7 @@ export class ManageEmployeeComponent implements OnInit {
 
     });
   }
-    addMoney(row) {
+  addMoney(row) {
     let userInfo = row;
     const self = this;
     swal({
@@ -144,9 +152,52 @@ export class DialogOverviewExampleDialog implements OnInit {
       });
   }
 
-  public hasError = (controlName: string, errorName: string) => {
+  private hasError = (controlName: string, errorName: string) => {
     return this.addForm.controls[controlName].hasError(errorName);
   }
 
+
+}
+
+@Component({
+  selector: 'edit-employee-dialog',
+  templateUrl: './edit-employee-dialog.html',
+})
+export class EditEmployeeDialog implements OnInit {
+  private editForm: FormGroup;
+  constructor(
+    public dialogRef: MatDialogRef<EditEmployeeDialog>,
+    @Inject(MAT_DIALOG_DATA) private data: DialogData,
+    private service: UserService, ) { }
+  ngOnInit() {
+    console.log(this.data);
+    this.editForm = new FormGroup({
+      name: new FormControl(this.data.name['name'], [Validators.required, Validators.maxLength(10)]),
+      username: new FormControl(this.data.name['username'], [Validators.required, Validators.maxLength(10)]),
+      empId: new FormControl(this.data.name['empId'], [Validators.required, Validators.maxLength(6)]),
+      email: new FormControl(this.data.name['email'], [Validators.required, Validators.email]),
+      department: new FormControl(this.data.name['department'], [Validators.required]),
+      location: new FormControl(this.data.name['location'], [Validators.required]),
+      password: new FormControl(this.data.name['password'], [])
+    });
+  }
+  cancelBtn(): void {
+    this.dialogRef.close();
+  }
+
+  editUser(editValues) {
+    const self = this;
+    this.service.getUserById(this.data.name['id'])
+      .subscribe(data => {
+        const editUser = Object.assign({}, data, editValues);
+        self.service.updateUser(editUser)
+          .subscribe(data => {
+            swal('success', "Employee Details Edited Successfully.");
+          });
+    });
+  }
+  private hasError = (controlName: string, errorName: string) => {
+      return this.editForm.controls[controlName].hasError(errorName);
+  }
 
 }
