@@ -197,6 +197,62 @@
       "location": "Crystal IT Park",
       "password": "aa",
       "id": 19
+    },
+    {
+      "name": "abc",
+      "username": "abc",
+      "empId": 123,
+      "email": "abc@gmail.com",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "password": "123",
+      "confirmPassword": "123",
+      "is_admin": "",
+      "balance": 0,
+      "tranaction_history": [],
+      "id": 20
+    },
+    {
+      "name": "xyz",
+      "username": "xyz",
+      "empId": 12345,
+      "email": "XYZ@GMAIL.COM",
+      "department": "Neustar",
+      "location": "Impetus IT Park",
+      "password": "XYZ",
+      "confirmPassword": "XYZ",
+      "is_admin": true,
+      "balance": 0,
+      "tranaction_history": [],
+      "id": 21
+    },
+    {
+      "name": "huned",
+      "username": "huned",
+      "empId": 12345,
+      "email": "huned@gmail.com",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "password": "huned",
+      "confirmPassword": "huned",
+      "is_admin": true,
+      "balance": 0,
+      "tranaction_history": [],
+      "id": 22
+    },
+    {
+      "name": "vaibhav",
+      "username": "vaibhav",
+      "empId": 123456,
+      "email": "vaibhav@gmail.com",
+      "department": "UX Practice",
+      "location": "Crystal IT Park",
+      "password": "vaibhav",
+      "confirmPassword": "vaibhav",
+      "is_admin": "",
+      "balance": 0,
+      "tranaction_history": [],
+      "id": 23
     }
   ],
   "item": [
