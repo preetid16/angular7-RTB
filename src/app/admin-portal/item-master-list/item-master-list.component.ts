@@ -3,6 +3,7 @@ import { UserService } from './../../userData.service';
 import { Item } from "./../../shared/interface/item.model";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material';
 
 @Component({
   selector: 'app-item-master-list',
@@ -10,24 +11,33 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./item-master-list.component.css']
 })
 export class ItemMasterListComponent implements OnInit {
-  item: Item[];
   displayedColumns: string[] = ['item_name', 'quantity', 'price', 'image', 'actionColumn'];
-
+  dataSource = new MatTableDataSource<Item>();
   constructor(private service: UserService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.service.getItemList()
       .subscribe(data => {
-        this.item = data.filter(dataObj => {
+        this.dataSource.data = data.filter(dataObj => {
           return dataObj.quantity > 0;
         });
       });
+
+    this.dataSource.filterPredicate = function (data, filter: string): boolean {
+      return data.item_name.toLowerCase().includes(filter);
+    };
+  }
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 
   deleteItem(item: Item, event: Event) {
     this.service.deleteItem(item.id)
       .subscribe(data => {
-        this.item = this.item.filter(u => u !== item);
+        this.dataSource.data = this.dataSource.data.filter(u => u !== item);
       });
   };
 
@@ -63,7 +73,7 @@ export class MaterListAddItemDialog implements OnInit {
       item_name: new FormControl('', [Validators.required, Validators.maxLength(25)]),
       quantity: new FormControl('', [Validators.required]),
       price: new FormControl('', [Validators.required]),
-      is_item_of_day : new FormControl('', []),
+      is_item_of_day: new FormControl('', []),
     });
   }
   onNoClick(): void {
@@ -73,25 +83,12 @@ export class MaterListAddItemDialog implements OnInit {
   addItem(itemAddFormObj) {
     console.log(itemAddFormObj);
     if (itemAddFormObj.image_src == '' || itemAddFormObj.image_src == undefined) {
-        itemAddFormObj.image_src = 'assets/img/1.png';
+      itemAddFormObj.image_src = 'assets/img/1.png';
     }
     this.service.addItem(this.itemAddForm.value)
       .subscribe(data => {
         swal('success', "Item added Successfully.", "success");
       });
-  }
-  onFileSelected() {
-    const inputNode: any = document.querySelector('#file');
-
-    if (typeof (FileReader) !== 'undefined') {
-      const reader = new FileReader();
-
-      reader.onload = (e: any) => {
-        this.srcResult = e.target.result;
-      };
-
-      reader.readAsArrayBuffer(inputNode.files[0]);
-    }
   }
 
   public hasError = (controlName: string, errorName: string) => {

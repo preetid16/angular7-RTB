@@ -33,7 +33,6 @@ export class ManageEmployeeComponent implements OnInit {
   ngOnInit() {
     this.service.getUsers()
       .subscribe(data => {
-        console.log(data);
         this.users = data;
       });
 

@@ -13,7 +13,7 @@ const routes: Routes = [
         children: [
             { path: '', component: ManageEmployeeComponent },
             { path: 'employee', component: ManageEmployeeComponent },
-            { path: 'item', component: ItemOfDayComponent },
+            { path: 'item-of-day', component: ItemOfDayComponent },
             { path: 'masterlist', component: ItemMasterListComponent },
             { path: 'transaction', component: TransactionDetailsComponent }]
     }

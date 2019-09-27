@@ -33,7 +33,7 @@
 
       <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">Cancel</button>
-        <button mat-button [disabled]="itemAddForm.invalid" (click)="addItem(itemAddForm.value)" cdkFocusInitial>Add Item</button>
+        <button mat-raised-button color="primary" [disabled]="itemAddForm.invalid" (click)="addItem(itemAddForm.value)" cdkFocusInitial>Add Item</button>
       </div>
     </mat-card-content>
   </mat-card>

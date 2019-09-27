@@ -4,11 +4,12 @@
       "name": "pooja",
       "empId": 12345,
       "email": "a@gmail.com",
-      "department": "option",
-      "location": "option",
+      "department": "Neustar",
+      "location": "Impetus IT Park",
       "password": "aaaa",
       "confirmPassword": "aaaa",
-      "id": 4
+      "id": 4,
+      "username": "ioioioioio"
     },
     {
       "name": "qq",
@@ -80,9 +81,10 @@
       "balance": 0,
       "tranaction_history": [
         {
-          "amount": 0,
+          "amount": 500,
           "type": "credit",
-          "date": "2019-09-23T11:53:42.934Z"
+          "date": "2019-09-23T11:53:42.934Z",
+          "username": "df"
         }
       ],
       "id": 14
@@ -206,26 +208,19 @@
       "quantity": 4,
       "image_src": "assets/img/1.png",
       "price": 15,
-      "is_item_of_day": true
+      "is_item_of_day": false
     },
     {
       "id": 2,
       "item_name": "Ice Cream",
       "quantity": 6,
       "image_src": "assets/img/1.png",
-      "price": 15
-    },
-    {
-      "id": 3,
-      "item_name": "Sev",
-      "quantity": 6,
-      "image_src": "assets/img/1.png",
       "price": 15,
       "is_item_of_day": true
     },
     {
-      "id": 5,
-      "item_name": "Lays",
+      "id": 3,
+      "item_name": "Sev",
       "quantity": 6,
       "image_src": "assets/img/1.png",
       "price": 15,
@@ -245,6 +240,14 @@
       "is_item_of_day": true,
       "image_src": "assets/img/1.png",
       "id": 35
+    },
+    {
+      "item_name": "Lays",
+      "quantity": 15,
+      "price": 10,
+      "is_item_of_day": true,
+      "image_src": "assets/img/1.png",
+      "id": 36
     }
   ]
 }

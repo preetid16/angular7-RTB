@@ -4,4 +4,5 @@ export interface Item {
     quantity: number;
     price: number;
     image_src: string;
+    is_item_of_day?: boolean;
 }

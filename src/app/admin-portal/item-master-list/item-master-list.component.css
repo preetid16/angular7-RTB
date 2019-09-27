@@ -60,10 +60,6 @@ table {
      cursor: pointer;
 }
 
-.addUser {
-    text-align: right;
-    padding-right: 15%;
-}
 .pagination{
     padding-right: 39%;
     margin-top: 2%;

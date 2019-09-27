@@ -16,8 +16,32 @@ export class TransactionDetailsComponent implements OnInit {
     const self = this;
     if (userId !== undefined) {
       this.userService.getUserById(userId).subscribe(response => {
-        self.tranactionsArr = response['tranaction_history'];
+
+        if (response.is_admin) {
+          this.userService.getUsers()
+            .subscribe(data => {
+
+              let filteredDetails = data.filter((dataObj) => {
+                return dataObj.tranaction_history && dataObj.tranaction_history.length > 0;
+              });
+              let aa = [];
+              filteredDetails.forEach(element => {
+                element.tranaction_history.forEach(innerElement => {
+                  aa.push(innerElement);
+                });
+
+              });
+
+              self.tranactionsArr = aa;
+
+            });
+
+        } else {
+          self.tranactionsArr = response['tranaction_history'];
+        }
       });
+    } else {
+
     }
   }
 
