@@ -221,7 +221,7 @@
     {
       "id": 3,
       "item_name": "Sev",
-      "quantity": 6,
+      "quantity": 60,
       "image_src": "assets/img/1.png",
       "price": 15,
       "is_item_of_day": true

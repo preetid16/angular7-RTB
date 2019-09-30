@@ -12,6 +12,7 @@ import { SelectionModel } from '@angular/cdk/collections';
   styleUrls: ['./item-of-day.component.css']
 })
 export class ItemOfDayComponent implements OnInit {
+  title = "Item Of the Day"
   item: Item[];
   displayedColumns: string[] = ['item_name', 'quantity', 'price', 'image', 'actionColumn'];
   dataSource = new MatTableDataSource<Item>();
@@ -118,7 +119,6 @@ export class AddItemOfDayDialog implements OnInit {
       this.item.forEach((itemObj) => {
         aa.forEach(element => {
           if (itemObj.id == element.id) {
-
             this.service.getItemById(itemObj.id)
               .subscribe(data => {
                 itemObj.is_item_of_day = true;

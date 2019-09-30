@@ -11,6 +11,7 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./item-master-list.component.css']
 })
 export class ItemMasterListComponent implements OnInit {
+  title : string = "Master List";
   displayedColumns: string[] = ['item_name', 'quantity', 'price', 'image', 'actionColumn'];
   dataSource = new MatTableDataSource<Item>();
   constructor(private service: UserService, public dialog: MatDialog) { }
@@ -51,6 +52,18 @@ export class ItemMasterListComponent implements OnInit {
 
     });
   }
+
+   editItem(item: Item, event: Event) {
+      const dialogRef = this.dialog.open(EditMasterListDialog, {
+      width: '450px',
+      data: { selecetedItemData: item }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+     
+  };
 
 }
 
@@ -93,6 +106,48 @@ export class MaterListAddItemDialog implements OnInit {
 
   public hasError = (controlName: string, errorName: string) => {
     return this.itemAddForm.controls[controlName].hasError(errorName);
+  }
+
+}
+
+@Component({
+  selector: 'edit-master-list-dialog',
+  templateUrl: './edit-master-list-dialog.html',
+})
+export class EditMasterListDialog implements OnInit {
+  private itemEditForm: FormGroup;
+  constructor(
+    public dialogRef: MatDialogRef<EditMasterListDialog>,
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private service: UserService, ) { }
+
+  ngOnInit() {
+    console.log(this.data);
+    this.itemEditForm = new FormGroup({
+      item_name: new FormControl(this.data.selecetedItemData['item_name'], [Validators.required, Validators.maxLength(25)]),
+      quantity: new FormControl(this.data.selecetedItemData['quantity'], [Validators.required]),
+      price: new FormControl(this.data.selecetedItemData['price'], [Validators.required])
+    });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  editItem(editValues) {
+    const self = this;
+    console.log(this.data);
+    this.service.getItemById(this.data.selecetedItemData['id'])
+      .subscribe(data => {
+        const editUser = Object.assign({}, data, editValues);
+        self.service.updateItem(editUser)
+          .subscribe(data => {
+            swal('Success', "Item Details Edited Successfully.", "success");
+          });
+    });
+  }
+  private hasError = (controlName: string, errorName: string) => {
+      return this.itemEditForm.controls[controlName].hasError(errorName);
   }
 
 }

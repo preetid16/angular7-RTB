@@ -11,7 +11,7 @@ const routes: Routes = [
         path: 'admin',
         component: AdminPortalComponent,
         children: [
-            { path: '', component: ManageEmployeeComponent },
+            { path: '', component: ManageEmployeeComponent, pathMatch: 'full' },
             { path: 'employee', component: ManageEmployeeComponent },
             { path: 'item-of-day', component: ItemOfDayComponent },
             { path: 'masterlist', component: ItemMasterListComponent },
