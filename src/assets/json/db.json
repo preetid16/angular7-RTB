@@ -1,62 +1,6 @@
 {
   "users": [
     {
-      "name": "pooja",
-      "empId": 12345,
-      "email": "a@gmail.com",
-      "department": "Neustar",
-      "location": "Impetus IT Park",
-      "password": "aaaa",
-      "confirmPassword": "aaaa",
-      "id": 4,
-      "username": "ioioioioio"
-    },
-    {
-      "name": "qq",
-      "empId": 11,
-      "email": "q@gmail.com",
-      "department": "neustar",
-      "location": "citp",
-      "password": "qq",
-      "confirmPassword": "qq",
-      "is_admin": true,
-      "id": 7
-    },
-    {
-      "name": "ee",
-      "empId": 1,
-      "email": "ee@e",
-      "department": "neustar",
-      "location": "citp",
-      "password": "ee",
-      "confirmPassword": "ee",
-      "is_admin": "",
-      "id": 8
-    },
-    {
-      "name": "preeti",
-      "empId": 3,
-      "email": "preeti@gmail.com",
-      "department": "ux_practice",
-      "location": "citp",
-      "password": "preeti",
-      "confirmPassword": "preeti",
-      "is_admin": true,
-      "id": 9
-    },
-    {
-      "name": "pooja",
-      "username": "pooja_rai",
-      "empId": 3691,
-      "email": "p@impetus.co.in",
-      "department": "ux_practice",
-      "location": "impetus_it_park",
-      "password": "aa",
-      "confirmPassword": "aa",
-      "is_admin": "",
-      "id": 10
-    },
-    {
       "name": "Pooja",
       "username": "pooja",
       "empId": 3691,
@@ -69,22 +13,27 @@
       "id": 12
     },
     {
-      "name": "df",
-      "username": "df",
+      "name": "John",
+      "username": "John",
       "empId": 12,
-      "email": "fd@gfg",
+      "email": "John@gfg",
       "department": "UX Practice",
       "location": "Crystal IT Park",
       "password": "df",
       "confirmPassword": "df",
       "is_admin": "",
-      "balance": 0,
+      "balance": 200,
       "tranaction_history": [
         {
           "amount": 500,
           "type": "credit",
           "date": "2019-09-23T11:53:42.934Z",
           "username": "df"
+        },
+        {
+          "amount": 200,
+          "type": "credit",
+          "date": "2019-09-30T08:45:04.381Z"
         }
       ],
       "id": 14
@@ -178,27 +127,39 @@
       "department": "Neustar",
       "location": "Impetus IT Park",
       "password": "abhishek",
-      "id": 17
+      "id": 17,
+      "balance": null,
+      "tranaction_history": [
+        {
+          "amount": 100,
+          "type": "credit",
+          "date": "2019-09-30T08:50:59.943Z"
+        }
+      ]
     },
     {
-      "name": "abc",
-      "username": "abc",
-      "empId": 123456,
-      "email": "abc@gmail.com",
-      "department": "UX Practice",
-      "location": "Crystal IT Park",
-      "password": "abc",
-      "id": 18
-    },
-    {
-      "name": "aa",
-      "username": "aa",
+      "name": "Ayushi",
+      "username": "ayushi",
       "empId": 21,
       "email": "21@h.com",
       "department": "UX Practice",
       "location": "Crystal IT Park",
       "password": "aa",
       "id": 19
+    },
+    {
+      "name": "admin",
+      "username": "admin",
+      "empId": 123,
+      "email": "admin@impetus.co.in",
+      "department": "Neustar",
+      "location": "Impetus IT Park",
+      "password": "admin",
+      "confirmPassword": "admin",
+      "is_admin": true,
+      "balance": 0,
+      "tranaction_history": [],
+      "id": 20
     }
   ],
   "item": [
@@ -234,9 +195,9 @@
       "id": 34
     },
     {
-      "item_name": "Chatpati Bhujiya",
-      "quantity": 15,
-      "price": 10,
+      "item_name": "Chatpati Bhujiya1",
+      "quantity": 152,
+      "price": 103,
       "is_item_of_day": true,
       "image_src": "assets/img/1.png",
       "id": 35
@@ -245,9 +206,17 @@
       "item_name": "Lays",
       "quantity": 15,
       "price": 10,
-      "is_item_of_day": true,
+      "is_item_of_day": false,
       "image_src": "assets/img/1.png",
       "id": 36
+    },
+    {
+      "item_name": "New item",
+      "quantity": 12,
+      "price": 50,
+      "is_item_of_day": "",
+      "image_src": "assets/img/1.png",
+      "id": 37
     }
   ]
 }

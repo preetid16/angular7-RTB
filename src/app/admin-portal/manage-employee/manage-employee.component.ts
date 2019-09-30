@@ -41,22 +41,17 @@ export class ManageEmployeeComponent implements OnInit {
     this.show = true;
     const dialogRef = this.dialog.open(EditEmployeeDialog, {
       width: '450px',
-      data: { name: employee, animal: this.animal }
+      data: { name: employee }
     });
 
     dialogRef.afterClosed().subscribe(result => {
 
     });
-    // let deleteBy = (employee.empId) ? employee.empId : employee.id;
-    // this.service.deleteUser(deleteBy)
-    //   .subscribe(data => {
-    //     this.users = this.users.filter(u => u !== employee);
-    //   });
-    
+     
   };
 
   deleteEmployee(employee: Employee, event: Event) {
-    let deleteBy = (employee.empId) ? employee.empId : employee.id;
+    let deleteBy = (employee.id) ? employee.id : employee.empId;
     this.service.deleteUser(deleteBy)
       .subscribe(data => {
         this.users = this.users.filter(u => u !== employee);
@@ -66,7 +61,7 @@ export class ManageEmployeeComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '450px',
-      data: { name: this.name, animal: this.animal }
+      data: { name: this.name}
     });
 
     dialogRef.afterClosed().subscribe(result => {
