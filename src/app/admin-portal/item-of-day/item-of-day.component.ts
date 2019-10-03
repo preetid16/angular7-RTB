@@ -45,7 +45,6 @@ export class ItemOfDayComponent implements OnInit {
   removeItemOfDay(item) {
     this.service.getItemById(item.id)
       .subscribe(data => {
-        console.log('response ', data)
         data.is_item_of_day = false;
 
         this.service.updateItem(data)
