@@ -84,13 +84,20 @@ export class ManageEmployeeComponent implements OnInit {
          value = Number(value);
       }
       if(value !== undefined && typeof value === 'number' && value !== null) {
-          const userName = userInfo['userName'];
+          const userName = userInfo['username'];
           const id = Number(userInfo['id']);
           if (id !== undefined) {
                 self.service.getUserById(id).subscribe(user => {
-                  user['balance'] += value;
+                  if(user.balance == undefined){
+                    user.balance = 0;
+                  }
+                  user.balance += value;
+
+                  if(user['tranaction_history'] == undefined){
+                    user['tranaction_history'] = [];
+                  }
                   user['tranaction_history'].push({
-                    'userName' :userName,
+                    'username' :userName,
                     'amount': value,
                     'type':'credit',
                     'date':new Date()
