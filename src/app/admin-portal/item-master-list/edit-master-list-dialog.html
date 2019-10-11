@@ -1,4 +1,4 @@
-<form [formGroup]="itemAddForm" autocomplete="off" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+<form [formGroup]="itemEditForm" autocomplete="off" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
   <mat-card class="cardStyle">
     <mat-card-content>
       <div class="example-container">
@@ -27,13 +27,12 @@
           <input type="number" matInput placeholder="Price" formControlName="price">
           <mat-error *ngIf="hasError('price', 'required')">Required</mat-error>
         </mat-form-field>
-        <br>
-        <mat-checkbox formControlName="is_item_of_day">Is Item of the Day?</mat-checkbox>
+
       </div>
 
       <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">Cancel</button>
-        <button mat-raised-button color="primary" [disabled]="itemAddForm.invalid" (click)="addItem(itemAddForm.value)" cdkFocusInitial>Add Item</button>
+        <button mat-raised-button color="primary" [disabled]="itemEditForm.invalid" (click)="editItem(itemEditForm.value)" cdkFocusInitial>Edit Item</button>
       </div>
     </mat-card-content>
   </mat-card>

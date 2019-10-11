@@ -1,11 +1,11 @@
 .footer {
-
-  position: absolute;
-  bottom: 0;
-  width: 99%;
-  height: 2.5rem;            /* Footer height */
-
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 20px;
+  width: 100%;
 }
+
 .example-icon {
   padding: 0 14px;
 }
@@ -13,10 +13,11 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
 .header {
-    height: 35px;
-    width: 100%;
-    font-size: 1.2rem;
-    text-align: center;
-    font-weight: bold;
+  height: 35px;
+  width: 100%;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
 }

@@ -1,5 +1,5 @@
 table {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
 }
 
@@ -45,8 +45,8 @@ table {
 
 .mat-form-field {
     font-size: 14px;
-    width: 70%;
-    margin-left: 15%;
+    width: 60%;
+    margin-left: 20%;
 }
 
 .delete {
@@ -67,4 +67,8 @@ table {
 .pagination{
     padding-right: 39%;
     margin-top: 2%;
+}
+.title {
+    text-align: center;
+    padding-top: 1%;
 }

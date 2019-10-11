@@ -16,8 +16,8 @@ const appRoutes: Routes = [
   },
   { path: 'login', component: LoginComponent , pathMatch: 'full'},
   { path: 'signup', component: SignupFormComponent,  pathMatch: 'full' },
-  { path: 'admin', component: AdminPortalComponent,  pathMatch: 'full', canActivate: [AuthGuard], data: { expectedRole: 'admin'}  },
-  { path: 'employee', component: EmployeePortalComponent,  pathMatch: 'full', canActivate: [AuthGuard], data: { expectedRole: 'employee'}  },
+  { path: 'admin', component: AdminPortalComponent,  pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'employee', component: EmployeePortalComponent,  pathMatch: 'full', canActivate: [AuthGuard] },
 
 ];
 

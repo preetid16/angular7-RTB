@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           .pipe(first())
           .subscribe( (result) => {
             localStorage.setItem('userId', user[0]['id']);
-            self.router.navigate([localStorage.getItem('role')])
+            self.router.navigate([localStorage.getItem('role')]);
           } 
         );
         } else {

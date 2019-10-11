@@ -3,13 +3,7 @@ import { AngularMaterialModule } from '../../shared/angular-material.module';
 import { UserService } from '../../userData.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
-export interface PeriodicElement {
-  id: number;
-  item_name: string;
-  quantity: number;
-  image_src: string;
-  price: number;
-}
+import { Item } from "./../../shared/interface/item.model";
 
 @Component({
   selector: 'app-menu-list',
@@ -18,9 +12,9 @@ export interface PeriodicElement {
 })
 export class MenuListComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'id', 'item_name', 'quantity', 'image', 'price'];
-  dataSource = new MatTableDataSource<PeriodicElement>([]);
-  selection = new SelectionModel<PeriodicElement>(true, []);
+  displayedColumns: string[] = ['select', 'id', 'item_name', 'image', 'price'];
+   dataSource = new MatTableDataSource<Item>();
+  selection = new SelectionModel<Item>(true, []);
   constructor(private userService: UserService) {
 
   }
@@ -29,8 +23,10 @@ export class MenuListComponent implements OnInit {
     const initialSelection = [];
     const allowMultiSelect = true
     this.userService.getItemList()
-      .subscribe((res) => {
-        self.dataSource = new MatTableDataSource<PeriodicElement>(res);
+      .subscribe((data) => {
+        this.dataSource.data = data.filter(dataObj => {
+          return dataObj.quantity > 0;
+        });
       });
   }
 
@@ -49,7 +45,7 @@ export class MenuListComponent implements OnInit {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: PeriodicElement): string {
+  checkboxLabel(row?: Item): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
@@ -58,6 +54,8 @@ export class MenuListComponent implements OnInit {
   buyItem() {
     const self = this;
     let calcualtePrice = 0;
+    let buyItemId;
+    let buyItemQuantity;
     this.selection['_selected'].forEach(ele => {
       calcualtePrice += ele.price;
     });
@@ -71,14 +69,30 @@ export class MenuListComponent implements OnInit {
           'type': 'Debit',
           'date': new Date()
         });
+        this.updateItemQuantity(this.selection['_selected']);
         self.userService.updateUser(user)
           .subscribe(data => {
             swal("Success", "Items purchasing Done!!", "success");
-          })
+          });
+
       } else {
         user['balance'] += calcualtePrice;
         swal("Oops!", "Not Enough Balance.Please add amount into your account.", "error");
       }
     })
+  }
+
+  updateItemQuantity(selectedItems) {
+    if (selectedItems.length == 0) return;
+    selectedItems.forEach(element => {
+      element.quantity = element.quantity - 1;
+      this.userService.getItemById(element['id'])
+        .subscribe(data => {
+          data.quantity = data.quantity - 1;
+          this.userService.updateItem(data).subscribe((res) => {
+            this.dataSource = new MatTableDataSource<Item>(res);
+          });
+        });
+    });
   }
 }

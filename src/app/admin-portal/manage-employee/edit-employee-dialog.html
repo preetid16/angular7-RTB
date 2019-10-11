@@ -1,4 +1,4 @@
-<form [formGroup]="editForm" autocomplete="off" novalidate fxLayout="column wrap" fxLayoutAlign="center center" (ngSubmit)="editUser(editForm.value)" fxLayoutGap="10px">
+<form [formGroup]="editForm" autocomplete="off" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
   <mat-card class="cardStyle">
     <mat-card-content>
       <div class="example-container">
@@ -56,7 +56,7 @@
 
       <div mat-dialog-actions>
         <button mat-button (click)="cancelBtn()">Cancel</button>
-        <button mat-button [disabled]="editForm.invalid" cdkFocusInitial>Edit</button>
+        <button mat-button [disabled]="editForm.invalid" (click)="editUser(editForm.value)" cdkFocusInitial>Edit</button>
       </div>
     </mat-card-content>
   </mat-card>

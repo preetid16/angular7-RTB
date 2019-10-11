@@ -1,9 +1,13 @@
+<div class="title">
+  <button mat-raised-button color="accent"> {{title}} </button>
+</div>
+
 <div class="outer-wrapper"><mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Item">
 </mat-form-field>
 
 <div>
-<table mat-table [dataSource]="item" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -40,8 +44,7 @@
   <ng-container matColumnDef="actionColumn">
      <th mat-header-cell *matHeaderCellDef> Ation Items </th>
     <td mat-cell *matCellDef="let row">
-       <mat-icon class="edit">edit</mat-icon>
-       <mat-icon class="delete" (click)="deleteItem(row, $event)">delete</mat-icon>
+       <mat-icon class="delete" title="Remove from the list" (click)="removeItemOfDay(row, $event)">delete</mat-icon>
     </td>
   </ng-container>
 
@@ -53,7 +56,7 @@
 </div>
 
 <div class="addUser">
-  <button mat-fab color="primary"><mat-icon>add</mat-icon></button> 
+  <button mat-fab color="primary" (click)="openDialog()"><mat-icon>add</mat-icon></button> 
 </div>
 
 </div>

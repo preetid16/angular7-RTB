@@ -21,6 +21,10 @@ export class UserService {
     return this.http.get(this.baseUrl + "users/"+ id);
   }
 
+  getItemById(id: number): Observable<any> {
+    return this.http.get(this.baseUrl + "item/"+ id);
+  }
+
   createUser(user: Employee): Observable<any> {
     return this.http.post(this.baseUrl + "users/", user);
   }
@@ -39,5 +43,9 @@ export class UserService {
 
   updateUser(user: Employee): Observable<any> {
     return this.http.put(this.baseUrl + "users/" +user['id'], user);
+  }
+
+  updateItem(item: Item): Observable<any> {
+    return this.http.put(this.baseUrl + "item/" +item['id'], item);
   }
 }
