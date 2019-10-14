@@ -97,7 +97,7 @@ export class ManageEmployeeComponent implements OnInit {
                     user['tranaction_history'] = [];
                   }
                   user['tranaction_history'].push({
-                    'username' :userName,
+                    'userName' :userName,
                     'amount': value,
                     'type':'credit',
                     'date':new Date()

@@ -14,38 +14,12 @@
       "balance": 50,
       "tranaction_history": [
         {
-          "username": "pooja",
+          "userName": "pooja",
           "amount": 50,
           "type": "credit",
           "date": "2019-10-03T12:46:28.626Z"
         }
       ]
-    },
-    {
-      "name": "John",
-      "username": "John",
-      "empId": 12,
-      "email": "John@gfg",
-      "department": "UX Practice",
-      "location": "Crystal IT Park",
-      "password": "df",
-      "confirmPassword": "df",
-      "is_admin": "",
-      "balance": 200,
-      "tranaction_history": [
-        {
-          "amount": 500,
-          "type": "credit",
-          "date": "2019-09-23T11:53:42.934Z",
-          "username": "df"
-        },
-        {
-          "amount": 200,
-          "type": "credit",
-          "date": "2019-09-30T08:45:04.381Z"
-        }
-      ],
-      "id": 14
     },
     {
       "name": "test",
@@ -59,18 +33,6 @@
       "is_admin": "",
       "balance": 484,
       "tranaction_history": [
-        {
-          "userName": "test",
-          "amount": 100,
-          "type": "credit",
-          "date": "2019-09-19T12:24:43.633Z"
-        },
-        {
-          "userName": "test",
-          "amount": 20,
-          "type": "credit",
-          "date": "2019-09-19T12:26:41.022Z"
-        },
         {
           "userName": "test",
           "amount": 15,
@@ -90,42 +52,6 @@
           "date": "2019-09-20T11:38:31.339Z"
         },
         {
-          "userName": null,
-          "amount": 25,
-          "type": "credit",
-          "date": "2019-09-20T13:20:34.885Z"
-        },
-        {
-          "userName": "test",
-          "amount": 15,
-          "type": "Debit",
-          "date": "2019-09-20T13:20:53.737Z"
-        },
-        {
-          "userName": "test",
-          "amount": 15,
-          "type": "credit",
-          "date": "2019-09-20T13:29:11.132Z"
-        },
-        {
-          "userName": "test",
-          "amount": 20,
-          "type": "credit",
-          "date": "2019-09-20T13:29:41.820Z"
-        },
-        {
-          "userName": "test",
-          "amount": 100,
-          "type": "credit",
-          "date": "2019-09-23T12:28:10.813Z"
-        },
-        {
-          "userName": "test",
-          "amount": 15,
-          "type": "Debit",
-          "date": "2019-09-23T12:28:39.510Z"
-        },
-        {
           "userName": "test",
           "amount": 15,
           "type": "Debit",
@@ -142,126 +68,9 @@
           "amount": 15,
           "type": "Debit",
           "date": "2019-10-03T11:13:49.504Z"
-        },
-        {
-          "userName": "test",
-          "amount": 118,
-          "type": "Debit",
-          "date": "2019-10-03T11:32:46.735Z"
-        },
-        {
-          "userName": "test",
-          "amount": 10,
-          "type": "Debit",
-          "date": "2019-10-03T12:12:59.905Z"
-        },
-        {
-          "userName": "test",
-          "amount": 10,
-          "type": "Debit",
-          "date": "2019-10-03T12:13:58.317Z"
-        },
-        {
-          "userName": "test",
-          "amount": 10,
-          "type": "Debit",
-          "date": "2019-10-03T12:14:10.046Z"
-        },
-        {
-          "userName": "test",
-          "amount": 113,
-          "type": "Debit",
-          "date": "2019-10-03T12:20:05.897Z"
-        },
-        {
-          "userName": "test",
-          "amount": 500,
-          "type": "credit",
-          "date": "2019-10-03T12:23:31.707Z"
-        },
-        {
-          "userName": "test",
-          "amount": 10,
-          "type": "Debit",
-          "date": "2019-10-03T12:28:02.905Z"
-        },
-        {
-          "userName": "test",
-          "amount": 10,
-          "type": "Debit",
-          "date": "2019-10-03T12:28:29.359Z"
-        },
-        {
-          "userName": "test",
-          "amount": 20,
-          "type": "credit",
-          "date": "2019-10-11T08:52:00.155Z"
-        },
-        {
-          "userName": "test",
-          "amount": 30,
-          "type": "Debit",
-          "date": "2019-10-11T08:52:30.127Z"
-        },
-        {
-          "userName": "test",
-          "amount": 25,
-          "type": "credit",
-          "date": "2019-10-11T08:53:47.615Z"
-        },
-        {
-          "userName": "test",
-          "amount": 15,
-          "type": "Debit",
-          "date": "2019-10-11T08:54:04.217Z"
         }
       ],
       "id": 15
-    },
-    {
-      "name": "abhishek",
-      "username": "abhishek",
-      "empId": 456,
-      "email": "abhi@gmail.com",
-      "department": "Neustar",
-      "location": "Impetus IT Park",
-      "password": "abhishek",
-      "id": 17,
-      "balance": 0,
-      "tranaction_history": [
-        {
-          "amount": 100,
-          "type": "credit",
-          "date": "2019-09-30T08:50:59.943Z"
-        },
-        {
-          "username": "abhishek",
-          "amount": 0,
-          "type": "credit",
-          "date": "2019-10-11T08:59:20.205Z"
-        }
-      ]
-    },
-    {
-      "name": "huned",
-      "username": "huned",
-      "empId": 12345,
-      "email": "huned@gmail.com",
-      "department": "UX Practice",
-      "location": "Crystal IT Park",
-      "password": "huned",
-      "confirmPassword": "huned",
-      "is_admin": true,
-      "balance": 50,
-      "tranaction_history": [
-        {
-          "username": "huned",
-          "amount": 50,
-          "type": "credit",
-          "date": "2019-10-11T12:32:23.129Z"
-        }
-      ],
-      "id": 22
     },
     {
       "name": "vaibhav",
@@ -276,7 +85,7 @@
       "balance": 100,
       "tranaction_history": [
         {
-          "username": "vaibhav",
+          "userName": "vaibhav",
           "amount": 100,
           "type": "credit",
           "date": "2019-10-11T12:30:01.429Z"
